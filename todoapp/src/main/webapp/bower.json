@@ -1,0 +1,27 @@
+{
+  "name": "container1",
+  "homepage": "https://github.com/Raghava3/ToDoApp.git",
+  "authors": [
+    "raghava <1raghuram3@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^1.0.3",
+    "bootstrap": "^3.3.7",
+    "bootstrap-css": "^3.3.7",
+    "angular-ui-bootstrap-datetimepicker": "^2.5.0",
+    "angular-animate": "^1.6.4",
+    "moment": "^2.18.1",
+    "angular-sanitize": "^1.6.4",
+    "angular-material": "^1.1.4"
+  }
+}

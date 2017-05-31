@@ -1,0 +1,156 @@
+body {
+	background-color: #babdb6;
+	background-repeat: no-repeat;
+	background-size: cover;
+}  
+
+
+
+
+/* .lpbg {
+	width: 350px;
+	height: 300px;
+	background-color:rgba(0,0,0,0.4);
+	margin: 0 auto;
+	margin-top: 160px;
+	padding-top: 10px;
+	padding-left: 40px;
+	border-radius: 5px;
+}
+
+.lbb {
+	width: fit;
+	height: 70px;
+	background-color: rgba(0, 0, 0, 0.9);
+	margin: 0 auto;
+	margin-top: 0px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+
+
+.lbutton {
+    background-color: #007951 ;
+    border: none;
+    color: white;
+    padding: 7px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 5px 2px;
+    cursor: pointer;
+    margin-left: -0.5px;
+}
+.lsignupbutton {
+   background-color: #007951;
+    border: none;
+    color: white;
+    padding: 7px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 5px 2px;
+    cursor: pointer;
+    margin-left: 552px;
+    margin-bottom: 46px;
+} */
+
+#bridgelabz
+{
+	width:100%;
+	height:40px;
+	margin-left:45%;
+	margin-top:12%;
+} 
+#makenote
+{
+	width:100%;
+	height:40px;
+	margin-left:39%;
+}
+	#centerdiv {
+	width: 457PX;
+	height: 400px;
+	background-color: white;/* rgba(255, 255, 255,0.9); */
+	margin: 0 auto;
+	margin-top: 50px;
+	padding-top: 0px;
+	padding-left: 0px;
+   box-shadow: 10px 10px 5px #888888;
+}
+
+#todo {
+	width: ;
+    height: 40px;
+    background-color:#043e62 ;
+    padding-left: 44%;
+    padding-top: 3%;
+}
+
+#logindiv {
+	width: 320px;
+	height: 100px;
+	padding-left:90px;
+	padding-top: 35px;
+}
+#signupdiv {
+	width: 477px;
+	height: 100px;
+	padding-left:0px;
+	margin-top: 32px; 
+}
+.lbutton {
+    background-color: #076cab ;
+    border: none;
+    color: white;
+    padding: 7px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 5px 2px;
+    cursor: pointer;
+    margin-left: -0.5px;
+}
+.lsignupbutton {
+   background-color: #076cab;
+    border: none;
+    color: white;
+    padding: 7px 38px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 5px 2px;
+    cursor: pointer;
+      margin-left: 33%; 
+	    margin-bottom: 46px;
+    margin-top:33px;
+} 
+#email
+{
+	width:170px;
+	height:30px;
+}
+#password
+{
+	width:170px;
+	height:30px;
+}
+ #logindiv1
+{
+	    margin-top: 16%;
+    margin-left: 20%; 
+} 
+	
+	#loginbutton
+	{
+	margin-left:20%;
+	}
+	#main
+	{
+	padding-left:0%;
+	}
