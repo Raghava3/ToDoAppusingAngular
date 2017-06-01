@@ -220,4 +220,111 @@ public class ToDoController {
 			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
 		}
 	}
+	
+	
+
+	/**
+	 * @param toDo
+	 * @param request
+	 * @param response
+	 * @return ResponseEntity
+	 * @throws JsonProcessingException
+	 */
+	@RequestMapping(value="/copyToDo", method=RequestMethod.POST)
+	public ResponseEntity<String> copyToDo(@RequestBody ToDo toDo, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		if( session != null && user != null ) {
+			toDo.setUser(user);
+			boolean result = toDoService.copyToDo( toDo );
+			if( result ) {
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("message", "toDo Coppied");
+				root.putPOJO("todoCopy", toDo);
+				String data = mapper.writeValueAsString(root);
+				return new ResponseEntity<String>(data, HttpStatus.OK);
+			}
+			else {
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("message", "toDo not Coppied");
+				String data = mapper.writeValueAsString(root);
+				return new ResponseEntity<String>(data, HttpStatus.NOT_ACCEPTABLE);
+			}
+			
+		}
+		else {
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("message", "login required");
+			String data = mapper.writeValueAsString(root);
+			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
+	/**
+	 * @param toDo
+	 * @param request
+	 * @param response
+	 * @return ResponseEntity
+	 * @throws JsonProcessingException
+	 */
+	@RequestMapping(value="setReminder", method=RequestMethod.POST)
+	public ResponseEntity<String> setReminder ( @RequestBody ToDo toDo, HttpServletRequest request, HttpServletResponse response  ) throws JsonProcessingException {
+		
+		HttpSession session = request.getSession();
+		User  user = (User) session.getAttribute("user");
+		if(session != null && user != null ){
+			toDoService.setReminder(toDo);
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("message", "remainder updated");
+			root.putPOJO("todo", toDo);
+			String data = mapper.writeValueAsString(root);
+			System.out.println( data ); 
+			return new ResponseEntity<String>(data, HttpStatus.OK);
+		}
+		else{
+			
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("message", "signIn Required");
+			String data = mapper.writeValueAsString(root);
+			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
+	
+	/**
+	 * @param request
+	 * @param response
+	 * @return ResponseEntity
+	 * @throws JsonProcessingException 
+	 */
+	@RequestMapping(value="cancelRemainder", method=RequestMethod.POST)
+	public ResponseEntity<String> cancelRemainder(@RequestBody ToDo toDo, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+		
+		System.out.println("not comming");
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		if( session != null && user != null ) {
+			toDoService.cancelRemainder(toDo);
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("message", "remainder updated");
+			String data = mapper.writeValueAsString(root);
+			System.out.println( data ); 
+			return new ResponseEntity<String>(data, HttpStatus.OK);
+		}
+		else {
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("message", "signIn Required");
+			String data = mapper.writeValueAsString(root);
+			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
 }
