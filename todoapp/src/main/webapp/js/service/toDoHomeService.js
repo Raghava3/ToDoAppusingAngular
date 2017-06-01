@@ -7,12 +7,13 @@ this.getNotes = function(){
 		});
 	}
 
-this.addNotes=function(){
-   	 return $hhtp({
+this.addNote=function(toDo){
+   	 return $http({
    		 url:"http://localhost:8030/todoapp/addNote",
-   		 method
-   		 
-   	 });} 
+   		method:"POST",
+   		data:toDo
+   	 });
+   	 } 
    
 this.deleteNote = function(id) {
 	

@@ -1,4 +1,4 @@
-myToDo.controller("HomeController", function($scope, $state,homeService)
+myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeService)
 		{
 
 	var toDoList = [];
@@ -22,7 +22,7 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 		
 	}).catch( function(error) {
 		$scope.isList = true;
-		$state.go('signIn');
+		$state.go('Login');
 		console.log(error);
 	});
 		
@@ -37,7 +37,7 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 		
 			var addToDoObj = homeService.addNote($scope.toDo);
 			addToDoObj.then( function(data) {
-				
+				console.log("coming inside add method");
 				if( data.status == 200 ) {
 					$scope.toDoList.push(data.data.todo);
 					console.log(data.data.todo);
@@ -50,7 +50,7 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 				
 			}).catch( function(error) {
 				console.log(error);
-				$state.go('signIn');
+				$state.go('Login');
 			});
 		
 	}
@@ -72,7 +72,7 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 			
 		}).catch( function(error) {
 			
-			$state.go('signIn');
+			$state.go('Login');
 		});
 	}
 	
@@ -87,7 +87,7 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 	this.popUp = function(toDo, index) {
 		
 		var modal = $uibModal.open({
-		     templateUrl: "template/popUp.html",
+		     templateUrl: "html/popUp.html",
 		     arialLabelledBy: "modal-title-bottom",
 		     arialLabelledBy: "modal-body-bottom",
 		     arialLabelledBy: "modal-footer-bottom",
@@ -134,7 +134,7 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 	
 	
 	$scope.updateNote = function( toDo ) {
-		console.log("mobile");
+		
 		toDo.upDated = new Date();
 		
 		var updToDoObj = homeService.updateNote(toDo);
@@ -182,7 +182,7 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 			}
 		}).catch( function(error) {
 			console.log(error);
-			$state.go('signIn');
+			$state.go('Login');
 		});
 	}
 	
@@ -197,14 +197,14 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 		signoutObj.then = function(data) {
 			
 			if( data.status == 200 ){
-				$state.go('signIn');
+				$state.go('Login');
 			}
 			else {
-				$state.go('signUp');
+				$state.go('SignUp');
 			}
 		}.catch( function(error) {
 			console.log(error);
-			$state.go('signUp');
+			$state.go('SignUp');
 		});
 	}
 	
@@ -243,7 +243,7 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 		    }
 		}).catch(function(error) {
 		    console.log(error);
-		    $state.go('signIn');
+		    $state.go('Login');
 		})
 		
 	}
@@ -267,7 +267,7 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 			}
 		}).catch(function(error) {
 			console.log(error);
-			$state.go('signIn');
+			$state.go('SignUp');
 		})
 	}
 	
@@ -280,11 +280,10 @@ myToDo.controller("HomeController", function($scope, $state,homeService)
 		colorObj.then(function(data) {
 			
 			if( data.status == 200 ) {
-				console.log("color set ogaya");
 			}
 		}).catch(function(error) {
 			console.log(error);
-			$state.go('signIn');
+			$state.go('Login');
 		})
 	}
 	

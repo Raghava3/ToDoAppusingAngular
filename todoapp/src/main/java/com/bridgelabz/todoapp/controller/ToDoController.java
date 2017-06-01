@@ -90,7 +90,7 @@ public class ToDoController {
 	 * @return String message and status
 	 * @throws JsonProcessingException
 	 */
-	@RequestMapping(value = "/addNote")
+	@RequestMapping(value = "/addNote" , method=RequestMethod.POST)
 	public ResponseEntity<String> addNote(@RequestBody ToDo toDo, HttpServletRequest request,
 			HttpServletResponse response) throws JsonProcessingException {
 
@@ -134,7 +134,7 @@ public class ToDoController {
 
 	
 	/**
-	 * to delete the particular note
+	 * to delete note
 	 * 
 	 * @param id
 	 * @param request
