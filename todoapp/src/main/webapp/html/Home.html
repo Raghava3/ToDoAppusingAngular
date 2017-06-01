@@ -55,26 +55,16 @@
   </div>
   
   
+
   
-	<!--  <div data-ng-repeat="todo in toDoList">
-	 
-		<br>
-		<br>
-		<div id="notelist">
-		<div id="titlenote" ><b>{{todo.title}} </b></div>
-		<div id="descriptionnote">{{todo.note}}</div>
-		</div>
-		</div>
-	
-  </div> -->
-  <div id="homeBody" class="row"  data-ng-style="move">
+   <div id="homeBody" class="row"  data-ng-style="move">
 		<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 					<div>
 						<div >
 						
-							<div data-ng-show ="IsVisible" id="title" name="title" data-ng-model="toDo.title" newcontenteditable contenteditable="true" placeholder="Title" style="font-weight: bold;"></div>
-							<div id="note" name="note" data-ng-model="toDo.note" data-ng-click="hc.showHide()" newcontenteditable contenteditable="true" placeholder="Take a note..."></div>
+							<div data-ng-show ="IsVisible" id="title"  data-ng-model="toDo.title" newcontenteditable contenteditable="true" placeholder="Title" style="font-weight: bold;"></div>
+							<div id="note"  data-ng-model="toDo.note" data-ng-click="hc.showHide()" newcontenteditable contenteditable="true" placeholder="Take a note..."></div>
 							
 							<div class="row" data-ng-show ="done" id="done">
 										<div class="col-sm-4">
@@ -235,27 +225,3 @@
 			</div>
 </div> 
 
-<!-- <nav class="navbar navbar-inverse" id="navbar">
-  <div class="container-fluid">
-   
-    <ul class="nav navbar-nav">
-      <li><a href="#"><img alt="icon" data-toggle="tooltip" title="Menu" src="images/Menu.png" width="25px" height="20px" style="margin-top: 20px;margin-left: -30px;"></a></li>
-      <li><a href="#">note</a></li>
-    </ul>
-    <form class="navbar-form navbar-left">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-     <ul class="nav navbar-nav">
-      <li><a href="#"><span class="glyphicon glyphicon-refresh" data-toggle="tooltip" title="Refresh"></span></a></li>
-      <li><a href="#">  <img alt="notifn" src="images/notification.png" width="20px;" height="20px;" data-toggle="tooltip" title="Notification" style="margin-left: 20px; cursor: pointer; margin-top: 20px;">
-		            </a></li>
-    </ul>
-  </div>
-</nav> --> 

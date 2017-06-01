@@ -103,4 +103,92 @@ public class ToDoDaoImpl implements ToDoDao{
 		}
 	}
 
-}
+	@Override
+	public void setColor(ToDo toDo) {
+
+		try{
+			session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			
+			session.update(toDo);
+			transaction.commit();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
+	}
+	
+	@Override
+	public boolean copyToDo(ToDo copy) {
+		
+		try{
+			session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			session.save(copy);
+			transaction.commit();
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		finally {
+			if( session != null ) {
+				session.close();
+			}
+		}
+		
+	}
+
+
+
+	@Override
+	public void setReminder(ToDo toDo) {
+		
+		try{
+			session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			session.update(toDo);
+			transaction.commit();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			if(session != null ){
+				session.close();
+			}
+		}
+	}
+
+
+
+	@Override
+	public void cancelRemainder(ToDo toDo) {
+		
+		try{
+			session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			
+			session.update(toDo);
+			transaction.commit();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
+	}
+
+	
+	}
+
+

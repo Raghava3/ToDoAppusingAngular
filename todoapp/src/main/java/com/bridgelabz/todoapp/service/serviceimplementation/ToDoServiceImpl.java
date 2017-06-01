@@ -37,4 +37,30 @@ public class ToDoServiceImpl implements ToDoService {
 		return toDoDao.updateNote(toDo);
 	}
 
+	@Override
+	public void setColor(ToDo toDo) {
+
+		
+		toDoDao.setColor(toDo);
+		
+	}
+	@Override
+	public boolean copyToDo(ToDo copy) {
+		
+		return toDoDao.copyToDo(copy);
+	}
+
+	@Override
+	public void setReminder(ToDo toDo) {
+		
+		toDoDao.setReminder(toDo);
+	}
+
+	@Override
+	public void cancelRemainder(ToDo toDo) {
+		
+		toDoDao.cancelRemainder(toDo);
+	}
+	
+
 }

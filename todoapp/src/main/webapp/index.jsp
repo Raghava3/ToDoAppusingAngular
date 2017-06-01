@@ -11,12 +11,9 @@
  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
 
  
- <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
-
-	<!-- <script src="bower_components/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
 	<script src="bower_components/angular-animate/angular-animate.min.js" type="text/javascript"></script>
-
-	 -->
 	<script src="js/app.js" type="text/javascript"></script>
 	
 	

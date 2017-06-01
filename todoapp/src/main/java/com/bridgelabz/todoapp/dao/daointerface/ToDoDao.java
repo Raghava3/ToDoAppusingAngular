@@ -29,5 +29,24 @@ public interface ToDoDao {
 	 */
 	public boolean updateNote(ToDo toDo);
 
-	
+	/**
+	 * @param toDo
+	 */
+	public void setColor(ToDo toDo);
+	/**
+	 * @param copy
+	 * @return true/false
+	 */
+	public boolean copyToDo(ToDo copy);
+
+	/**
+	 * @param toDo
+	 */
+	public void setReminder(ToDo toDo);
+
+	/**
+	 * @param toDoId
+	 */
+	public void cancelRemainder(ToDo toDo);
+
 }

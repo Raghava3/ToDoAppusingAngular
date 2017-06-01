@@ -23,6 +23,4 @@ public interface UserDaoInter
 	 */
 	public User login(String mail, String password);
 
-	
-	
 }

@@ -31,5 +31,25 @@ public interface ToDoService {
 	 */
 	public boolean updateNote(ToDo toDo);
 
+	/**
+	 * @param toDo
+	 */
+	public void setColor(ToDo toDo);
+	/**
+	 * @param copy
+	 * @return
+	 */
+	public boolean copyToDo(ToDo copy);
+
+	/**
+	 * @param toDo
+	 */
+	public void setReminder(ToDo toDo);
+
+	/**
+	 * @param toDoId
+	 */
+	public void cancelRemainder(ToDo toDo);
+
 	
 }
