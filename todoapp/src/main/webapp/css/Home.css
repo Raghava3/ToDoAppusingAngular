@@ -10,6 +10,11 @@
 	border-radius:3px;
 	
 }
+#srchwdt
+{
+	width:60%;
+	margin-top: 6px;
+}
 #navHead
 {
 	padding-top: 15px;
@@ -17,9 +22,10 @@
 }
 #navBar
 {
-	height: 65px;
-	background-color:#043e62;/* #fb0; */
+	height: 75px;
+	background-color:#fb0;/* #043e62; */
 	border:none;
+
 }
 
 #refresh
@@ -27,6 +33,8 @@
 	margin-top:20px;
 	font-size: 17px;
 	padding-left: 25px;
+	   
+}
 }
 
 #signOut
@@ -47,7 +55,14 @@
     margin-left: 21px;
 }
 
-
+#menu-toggle
+{
+	
+	margin-top: 19px;
+    height: 23px;
+    margin-left: 45px;
+    padding-left: 3px;
+}
 
 
 #homeBody
@@ -216,7 +231,7 @@
 }
 
 .menu.is-visible {
-  width: 200px;
+  width: 300px;
   transition: width 0.5s ease-in-out;
 }
 

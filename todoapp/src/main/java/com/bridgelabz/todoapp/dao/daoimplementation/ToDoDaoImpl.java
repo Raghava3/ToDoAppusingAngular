@@ -44,6 +44,12 @@ public class ToDoDaoImpl implements ToDoDao{
 		try {
 			session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
+			if((toDo.getTitle()==null&&toDo.getNote()==null)||(toDo.getTitle()==""&&toDo.getNote()==""))
+			{
+			System.out.println("null");
+				toDo.setTitle("Empty");
+				toDo.setNote("Empty");
+			}
 			
 			session.save(toDo);
 			transaction.commit();

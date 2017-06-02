@@ -1,14 +1,14 @@
  <div data-ng-controller="HomeController as hc">
-	<nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-	   
-	      <div class="navbar-header">
+<nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+	   <div class="navbar-header">
           <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"></a>
 			<span>
 				<span data-ng-click="visible=!visible; hc.move()" style="cursor: pointer;">
-					<img alt="icon" data-toggle="tooltip" title="Menu" src="images/menuWhite.png" width="25px" height="20px" style="margin-top: 20px;margin-left: -30px;">
+					<img alt="icon" data-toggle="tooltip" title="Menu" src="images/menuWhite.png" width="30px" height="28px" style="margin-top: 0px;margin-left: -30px;">
 				</span>
-				<span style="margin-top: 30px;">
-					<span style="padding-left: 35px; font-size: 26px; color:white;"><b style="margin-top: 50px;">Note</b></span>
+				<span style="margin-top: 45px;">
+				
+					<span style="padding-left: 45px; margin-top: 33px; font-size: 36px; color:black;">Google</span>
 				</span>
 				
 			</span>
@@ -27,11 +27,12 @@
       
       
       <div id="navbar" class="navbar-collapse collapse">
-	          
-	          <ul class="nav navbar-nav navbar-right" id="navBar" style="width: 35%">
+	       <ul class="nav navbar-nav navbar-right" id="navBar" style="width: 78% ">
 
-				<li>
-					<input type="text" placeholder="Search" id="search"  data-toggle="tooltip" title="Search"></span>
+				<li id="srchwdt">
+				
+					<input type="text" placeholder="Search" id="search"  data-toggle="tooltip" title="Search">
+			     
 				</li>
 					          
 				<li id="refresh">
@@ -40,17 +41,54 @@
 		      
           		
 				<li>
-		    		<font color="white"><span  class="glyphicon" data-ng-click="isList = !isList" data-ng-class="{'glyphicon-list': !isList, 'glyphicon-th-large': isList}" style="margin-top:20px; font-size: 17px;padding-left: 25px"></span></font>
+		    		<font color="white"><span  class="glyphicon" data-ng-click="isList = !isList" data-ng-class="{'glyphicon-list': !isList, 'glyphicon-th-large': isList}" style="margin-top:20px;   font-size: 17px;margin-left: 20px"></span></font>
 				</li>
+				
+				   <li>
+		            <span>
+		            <img alt="notifn" src="images/notification.png" width="20px;" height="20px;" data-toggle="tooltip" title="Notification" style=" cursor: pointer; margin-top: 15px;margin-left: 37px;">
+		            </span>
+				</li>
+					
+	            <li>
+	            	<span uib-dropdown >
+	            	
+	            	<div class="dropdown-toggle" uib-dropdown-toggle style="width: 40px; height:40px; border-radius: 50%; background-color: white; padding-left: 10px; font-size: 30px; margin-top:20px;margin-left:200px; background-color: #b5a429; color:white; cursor: pointer;" data-toggle="tooltip" title="ToDo Account : {{user.email}}">{{user.name.charAt(0)| uppercase}}</div>
+	          			<div  uib-dropdown-menu style="margin-right: -329px;">
+	          				
+	          				<div class="col-sm-3" style="width: 300px;height: 130px;padding-top: 10px;border-bottom: 2px solid;">
+	          				
+	          					<div class="col-sm-1" id="userChar" data-toggle="tooltip" title="Profile" >
+	          						{{user.name.charAt(0) | uppercase}}
+	          					</div>
+	          					<div class="col-sm-1">
+	          					
+	          					<span style="font-weight: bold; padding-left: 200px; padding-top: 10px">{{user.name}}</span>
+	          					<span style="padding-left: 15px;">{{ user.mobile}}</span>
+	          					<span style="padding-left: 15px;">{{ user.email}}</span>
+	          					
+	          					</div>
+	          				</div>
+	          			
+	          			<div style="padding-left: 15px; padding-right: 15px;padding-bottom: 10px;">
+	          				<button style="margin-top: 15px;">Add account</button> <button style="float: right;margin-top: 15px;">sign Out</button>
+	          			</div>
+	          			</div>
+	          		</span>
+	          			
+	          		
+	          	</li>
+				
+				
 	          </ul>
 	      </div>
 	</nav>
-<div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1;">
-    <ul style="padding-top: 20px; font-size: 20px;">
-      <li>Home</li>
-      <li>Notes</li>
-      <li>About</li>
+<div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color: #A4A7A0">
+    <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
+    <font color="red" link="#043e62">
+    
       <li><a href="#Login">SignOut</a></li>
+   </font>
     </ul>
   </div>
   
@@ -64,7 +102,7 @@
 						<div >
 						
 							<div data-ng-show ="IsVisible" id="title"  data-ng-model="toDo.title" newcontenteditable contenteditable="true" placeholder="Title" style="font-weight: bold;"></div>
-							<div id="note"  data-ng-model="toDo.note" data-ng-click="hc.showHide()" newcontenteditable contenteditable="true" placeholder="Take a note..."></div>
+							<div id="note"  data-ng-model="toDo.note" data-ng-click="hc.showHide()" newcontenteditable contenteditable="true" placeholder="write a note..."></div>
 							
 							<div class="row" data-ng-show ="done" id="done">
 										<div class="col-sm-4">
@@ -119,14 +157,21 @@
 							<div class="card" id="cardId" data-ng-repeat="todo in toDoList" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
 						
 								<div  data-ng-click="hc.popUp(todo, $index)" >
-									<div id="toDoTitle">{{todo.title}}</div>
-									<div id="toDoNote">{{todo.note}}</div>
+									<div id="toDoTitle">
+										 <span data-toggle="tooltip" title="rightmark">
+										   <img uib-dropdown-toggle alt="color" src="images/check.png" data-ng-show="icons"  width="25px;" height="20px;"  style=" cursor: pointer;margin-top: -20px; margin-left: -25px">
+										  </span>
+									
+									{{todo.title}}</div>
+									<div id="toDoNote"><font size="6px" >{{todo.note}}</font></div>
 								</div>
 							
 								<div  id="icons" style="padding-left: 20px;">
+								 
 									<span data-ng-show="icons">
 									
 										<span uib-dropdown dropdown-append-to-body>
+										 
 											<span data-toggle="tooltip" title="Remind me">
 												<img uib-dropdown-toggle alt="color" src="images/remaind.png" width="25px;" height="20px;"  style=" cursor: pointer;"">
 											</span>
@@ -198,7 +243,7 @@
 												<img alt="icon" src="images/more.png" width="30px" height="25px">
 											</span>
 										
-											<div >
+											<div bgcolor="white">
 												<ul uib-dropdown-menu class="dropdown-menu" style="cursor: pointer; margin-left: 2%; margin-top: 10px;">
 													<li data-ng-click="hc.makeCopy(todo)"><a>copy</a></li>
 													<li data-ng-click="hc.deleteNote(todo.id, $index)"><a>Delete Note</a></li>

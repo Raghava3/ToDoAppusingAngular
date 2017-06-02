@@ -12,8 +12,6 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 		if( data.status == 200 ) {
 			console.log(data.data.todo);
 			$scope.toDoList = data.data.todo;
-			
-			
 		}
 		else{
 			
@@ -33,8 +31,13 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 		$scope.done = $scope.done ? false :true;
 		$scope.IsVisible = $scope.IsVisible ? false :true;
 		
-		if($scope.toDo.title != null && $scope.toDo.note != null || ($scope.toDo.title != "" && $scope.toDo.note != ""))	
-		
+	/*if($scope.toDo.title != null && $scope.toDo.note != null || ($scope.toDo.title != "" && $scope.toDo.note != ""))	*/
+		if($scope.toDo.title == null && $scope.toDo.note == null || ($scope.toDo.title == "" && $scope.toDo.note == ""))
+			{
+			console.log("comming inside null ");
+			$scope.toDo.title = "Empty";
+			$scope.toDo.note = "Empty";
+			}
 			var addToDoObj = homeService.addNote($scope.toDo);
 			addToDoObj.then( function(data) {
 				console.log("coming inside add method");
@@ -153,7 +156,7 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	
 	this.move = function() {
 		if($scope.visible){
-			$scope.move = {"margin-left":"10%","transition":"0.6s ease"}
+			$scope.move = {"margin-left":"15%","transition":"0.6s ease"}
 		}
 		else {
 			$scope.move = {"margin-left":"0px","transition":"0.6s ease"}
