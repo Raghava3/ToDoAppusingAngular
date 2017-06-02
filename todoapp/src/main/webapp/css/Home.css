@@ -3,19 +3,13 @@
 	width:100%;
 	height:47px;
 	outline: none;
-	background-color: #fcaf3e;
-	
+	background-color: white;/* #fcaf3e; */
 	border: none;
 	padding-left: 30px;
 	margin-top: 7px;
 	border-radius:3px;
 	
-	/*
-	margin-right: 60%;
-	 */
 }
-
-
 #navHead
 {
 	padding-top: 15px;
@@ -24,7 +18,7 @@
 #navBar
 {
 	height: 65px;
-	background-color: #fb0;
+	background-color:#043e62;/* #fb0; */
 	border:none;
 }
 

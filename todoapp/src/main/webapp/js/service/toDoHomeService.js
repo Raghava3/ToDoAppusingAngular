@@ -63,5 +63,14 @@ this.cancelRemainder = function(toDo) {
 	});
 }
 
+this.setColor=function(toDo)
+{
+	return $http({
+		url:"http://localhost:8030/todoapp/setColor",
+		method:"POST",
+		data:toDo
+	});
+	
+}
 
 });
