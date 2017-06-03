@@ -43,9 +43,9 @@ public class ToDoController {
 	public ResponseEntity<String> getNotes(HttpServletRequest request, HttpServletResponse response)
 			throws JsonProcessingException {
 
-		System.out.println("Comming");
+		System.out.println("inside getnotes");
 
-		HttpSession session = request.getSession(false);
+		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		if (user != null && session != null) {
 			List<ToDo> todoList = toDoService.getNotes(user.getId());
@@ -74,7 +74,7 @@ public class ToDoController {
 		else {
 			ObjectMapper mapper = new ObjectMapper();
 			ObjectNode root = mapper.createObjectNode();
-			root.put("status", "notes are not added");
+			root.put("status", "no user");
 			String data = mapper.writeValueAsString(root);
 			System.out.println(data);
 			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);

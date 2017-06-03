@@ -192,26 +192,6 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	
 	
 	
-	
-	this.signOut = function() {
-		
-		var signoutObj = homeService.signOut();
-		
-		signoutObj.then = function(data) {
-			
-			if( data.status == 200 ){
-				$state.go('Login');
-			}
-			else {
-				$state.go('SignUp');
-			}
-		}.catch( function(error) {
-			console.log(error);
-			$state.go('SignUp');
-		});
-	}
-	
-	
 	this.toToReminder = function(toDo, day) {
 		
 		var today = new Date();

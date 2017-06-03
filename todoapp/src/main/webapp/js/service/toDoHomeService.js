@@ -41,9 +41,10 @@ this.copyToDo = function(toDo) {
 }
 
 this.signOut = function() {
+	console.log("coming insige logjs")
 	return $http({
 		url:"http://localhost:8030/todoapp/signOut",
-		method:"POST"
+		method:"GET"
 	});
 }
 

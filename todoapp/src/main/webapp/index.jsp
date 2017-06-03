@@ -49,6 +49,8 @@
 <script src="js/controller/SignUpController.js" type="text/javascript"></script>
 <script src="js/controller/HomeController.js" type="text/javascript"></script>
 <script src="js/controller/LoginController.js" type="text/javascript"></script>
+<script src="js/controller/LogoutController.js" type="text/javascript"></script>
+
 
 <script src="js/service/toDoHomeService.js" type="text/javascript"></script>
 <script src="js/validation/toDoHome.js" type="text/javascript"></script>

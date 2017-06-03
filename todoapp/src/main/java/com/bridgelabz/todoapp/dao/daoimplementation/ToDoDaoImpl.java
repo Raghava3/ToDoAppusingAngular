@@ -22,13 +22,12 @@ public class ToDoDaoImpl implements ToDoDao{
 	public List<ToDo> getNotes(int UserId) {
 		try {
 			session = sessionFactory.openSession();
-			Transaction transaction = session.beginTransaction();
 			
 			String hql = "from ToDo where user_id=:userId";
 			Query query = session.createQuery(hql);
 			query.setParameter("userId", UserId);
 			List<ToDo> notes = query.list();
-			transaction.commit();
+			
 			return notes;
 		}
 		finally {

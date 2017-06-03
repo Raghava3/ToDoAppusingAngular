@@ -41,37 +41,40 @@
 		      
           		
 				<li>
-		    		<font color="white"><span  class="glyphicon" data-ng-click="isList = !isList" data-ng-class="{'glyphicon-list': !isList, 'glyphicon-th-large': isList}" style="margin-top:20px;   font-size: 17px;margin-left: 20px"></span></font>
+		    		<font color="white"><span  class="glyphicon" data-ng-click="isList = !isList" data-ng-class="{'glyphicon-list': !isList, 'glyphicon-th-large': isList}" style="margin-top:20px;   font-size: 17px;margin-left: 23px"></span></font>
 				</li>
 				
 				   <li>
 		            <span>
-		            <img alt="notifn" src="images/notification.png" width="20px;" height="20px;" data-toggle="tooltip" title="Notification" style=" cursor: pointer; margin-top: 15px;margin-left: 37px;">
+		            <img alt="notifn" src="images/notification.png" width="20px;" height="20px;" data-toggle="tooltip" title="Notification" style=" cursor: pointer; margin-top: 21px;margin-left: 37px;">
 		            </span>
 				</li>
 					
 	            <li>
 	            	<span uib-dropdown >
 	            	
-	            	<div class="dropdown-toggle" uib-dropdown-toggle style="width: 40px; height:40px; border-radius: 50%; background-color: white; padding-left: 10px; font-size: 30px; margin-top:20px;margin-left:200px; background-color: #b5a429; color:white; cursor: pointer;" data-toggle="tooltip" title="ToDo Account : {{user.email}}">{{user.name.charAt(0)| uppercase}}</div>
+	            	<div class="dropdown-toggle" uib-dropdown-toggle style="width: 40px; height:40px; border-radius: 50%; background-color: white; padding-left: 10px; font-size: 30px; margin-top:20px;
+	            	margin-left:200px; background-color: #2A4976; color:white; cursor: pointer;" data-toggle="tooltip" title="profile">{{user.fullName.charAt(0)| uppercase}}</div>
 	          			<div  uib-dropdown-menu style="margin-right: -329px;">
 	          				
 	          				<div class="col-sm-3" style="width: 300px;height: 130px;padding-top: 10px;border-bottom: 2px solid;">
 	          				
 	          					<div class="col-sm-1" id="userChar" data-toggle="tooltip" title="Profile" >
-	          						{{user.name.charAt(0) | uppercase}}
+	          						{{user.fullName.charAt(0)|uppercase}}
 	          					</div>
-	          					<div class="col-sm-1">
+	          					<div class="col-sm-1" style="margin-top: 18px;">
 	          					
-	          					<span style="font-weight: bold; padding-left: 200px; padding-top: 10px">{{user.name}}</span>
-	          					<span style="padding-left: 15px;">{{ user.mobile}}</span>
-	          					<span style="padding-left: 15px;">{{ user.email}}</span>
+	          					<span style="font-weight: bold; padding-left: 15px; padding-top: 10px" data-toggle="tooletip" title="name">{{user.fullName}}</span>
+	          					<span style="padding-left: 15px;" data-toggle="tooltip" title="contact no.">{{ user.mobileNumber}}</span>
+	          					 <span style="padding-left: 15px;" data-toggle="tooltip" title="email">{{ user.email}}</span> 
 	          					
 	          					</div>
 	          				</div>
 	          			
 	          			<div style="padding-left: 15px; padding-right: 15px;padding-bottom: 10px;">
-	          				<button style="margin-top: 15px;">Add account</button> <button style="float: right;margin-top: 15px;">sign Out</button>
+	          			 <div data-ng-controller="logoutController as lo">
+	          				 <button style="float: right;margin-top: 5px;" data-ng-click="lo.signOut()">LogOut</button>
+	          			</div>	 
 	          			</div>
 	          			</div>
 	          		</span>
@@ -269,3 +272,4 @@
 			</div>
 </div> 
 
+</div>
