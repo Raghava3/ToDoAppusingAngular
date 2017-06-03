@@ -2,7 +2,6 @@ myToDo.controller("SignUpController",function ($scope,  $state, signUpService ,s
 	
 	signUpValidationService.signUpValidation();
 	
-	
      	$scope.signUp = function () {
 		console.log("sdfsadf");
 		var user = {};

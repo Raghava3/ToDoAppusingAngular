@@ -1,5 +1,6 @@
 myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeService)
 		{
+	
 
 	var toDoList = [];
 	var user = [];
@@ -192,8 +193,9 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	
 	
 	
-	this.toToReminder = function(toDo, day) {
+	this.toToReminder = function(toDo,index, day) {
 		
+		console.log("coming toToReminder");
 		var today = new Date();
 		var httpObjRem ;
 		
