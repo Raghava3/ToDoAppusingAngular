@@ -183,7 +183,7 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 		copyToDoObj.then (function(data) {
 			
 			if( data.status == 200 ) {
-				$scope.toDoList.push(data.data.todoCopy);
+				$scope.toDoList.push(data.data.todoCopy);navbar
 			}
 		}).catch( function(error) {
 			console.log(error);
@@ -273,23 +273,16 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 		})
 	}
 	
-	this.searchDiv=function()
-	{
-		console.log("inside div");
-		if(searchDiv)
-			{
-		  document.getElementById("search").style.backgroundColor="#CD8300";
-	        }
-		}
-
-	this.serchDivOriginal=function()
-	{
-	 console.log("inside original div");
-		if(serchDivOriginal)
-			{
-		  document.getElementById("search").style.backgroundColor="white";
-	        }
-		}
-	
+// this function to bring  shadow around head while scrolling up
+	$(window).scroll(function(){
+	    if ($(window).scrollTop() >= 30) {
+	    	console.log("coming inside the shadow" );
+	       $('#navbar').addClass('shadow-header');
+	    }
+	    else {
+	    	console.log("coming inside the else part");
+	       $('#navbar').removeClass('shadow-header');
+	    }
+	});
 	
 });
