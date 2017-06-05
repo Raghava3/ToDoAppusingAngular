@@ -1,6 +1,7 @@
-myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeService)
+myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeService,homeJavaScript)
 		{
 	
+	homeJavaScript.homescript();
 
 	var toDoList = [];
 	var user = [];
@@ -60,7 +61,7 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	}
 	
 	
-	
+
 	this.deleteNote = function(id, index) {
 		console.log(id+" "+index);
 		var delToDoObj = homeService.deleteNote(id);
@@ -271,6 +272,24 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 			$state.go('Login');
 		})
 	}
+	
+	this.searchDiv=function()
+	{
+		console.log("inside div");
+		if(searchDiv)
+			{
+		  document.getElementById("search").style.backgroundColor="#CD8300";
+	        }
+		}
+
+	this.serchDivOriginal=function()
+	{
+	 console.log("inside original div");
+		if(serchDivOriginal)
+			{
+		  document.getElementById("search").style.backgroundColor="white";
+	        }
+		}
 	
 	
 });

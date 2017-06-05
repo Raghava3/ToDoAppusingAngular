@@ -39,6 +39,7 @@ this.signUpValidation=function() {
      
        function check_username()
        {
+    	   console.log("comig inside the username")
     	   var username_length=$("#form_Name").val().length;
     	   if(username_length<5||username_length>20)
     		   {

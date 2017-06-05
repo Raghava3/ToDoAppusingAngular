@@ -1,4 +1,6 @@
-$(document).ready(function() {
+myToDo.service("homeJavaScript",function(){
+	this.homescript=function() {
+    $(document).ready(function() {
 	$('b').on('click', function(e) {
 
 		if ($(this).hasClass('grid')) {
@@ -134,7 +136,17 @@ function designOut() {
 	document.getElementById("onNote").style.boxShadow = "none";
 }
 
+function searchDiv()
+{
+	console.log("inside seach div");
+	  document.getElementById("search").style.backgroundColor="white";
+}
 
+function serchDivOriginal()
+{
+	console.log("inside oseach div");
+	  document.getElementById("search").style.backgroundColor="#CD8300";
+}
 
 
 function takeDesign() {
@@ -146,3 +158,5 @@ function takeDesignOut() {
     document.getElementById("newNote").style.boxShadow = "none";
     document.getElementById("take").style.boxShadow = "none";
 }
+}}
+);

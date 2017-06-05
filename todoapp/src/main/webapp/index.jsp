@@ -33,7 +33,6 @@
 <link rel="stylesheet" href="css/Login.css">
 <link rel="stylesheet" href="css/Home.css">
 
-
 <title>ToDoApp</title>
 </head>
 

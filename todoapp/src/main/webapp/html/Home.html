@@ -1,4 +1,6 @@
- <div data-ng-controller="HomeController as hc">
+
+ <div  data-ng-controller="HomeController as hc">
+<div data-ng-click=hc.serchDivOriginal()>
 <nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 	   <div class="navbar-header" style="margin-top:10px">
           <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"></a>
@@ -28,7 +30,7 @@
 	       <ul class="nav navbar-nav navbar-right" id="navBar" style="width: 78% ">
 
 				<li id="srchwdt">
-					<input type="text" placeholder="Search" id="search"  data-toggle="tooltip" title="Search">
+					<input type="text" placeholder="Search" id="search"   data-toggle="tooltip" title="Search" data-ng-click=hc.searchDiv()> 
 				</li>
 					          
 				<li id="refresh">
@@ -247,6 +249,7 @@
 												<ul uib-dropdown-menu class="dropdown-menu" style="cursor: pointer; margin-left: 2%; margin-top: 10px;">
 													<li data-ng-click="hc.makeCopy(todo)"><a>copy</a></li>
 													<li data-ng-click="hc.deleteNote(todo.id, $index)"><a>Delete Note</a></li>
+											
 												</ul>
 											</div>
 										
