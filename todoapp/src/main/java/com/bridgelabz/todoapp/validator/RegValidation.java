@@ -71,7 +71,7 @@ public class RegValidation  implements Validator
 			}
 		}
 		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required password");
+	/*	ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required password");
 		if(user.getPassword()!=null&& !user.getPassword().isEmpty())
 		{
 			pattern=Pattern.compile(PASSWORD_PATTERN);
@@ -81,7 +81,7 @@ public class RegValidation  implements Validator
 			{
 				errors.rejectValue("password","password  is required","enter the password");
 			}
-		}
+		}*/
 		
 	}
 }

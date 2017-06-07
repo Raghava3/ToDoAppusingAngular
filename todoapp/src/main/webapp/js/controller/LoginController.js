@@ -23,6 +23,11 @@ myToDo.controller("LoginController",function ($scope,  $state, loginService ) {
 			console.log(error);
 		});
 	}	
+ 
+     	$scope.loginWithFacebook=function(){
+     	var fbvar=loginService.loginWithFaceBook();
+     	}
+     	
 });
 
 
@@ -34,5 +39,11 @@ myToDo.service("loginService",function ($http) {
 			method:"post",
 			data:user
 		});
+	}
+	this.loginWithFacebook=function(){
+		
+		return $http({
+			url:"http://localhost:8030/todoapp/loginWithFacebook"
+		})
 	}
 });

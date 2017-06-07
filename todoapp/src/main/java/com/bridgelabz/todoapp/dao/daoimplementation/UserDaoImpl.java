@@ -1,9 +1,11 @@
 package com.bridgelabz.todoapp.dao.daoimplementation;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bridgelabz.todoapp.dao.daointerface.UserDaoInter;
@@ -19,6 +21,7 @@ public class UserDaoImpl implements UserDaoInter {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	Session session;
 	/*
 	 * This is method for user registration
 	 */
@@ -71,6 +74,25 @@ public class UserDaoImpl implements UserDaoInter {
 			}
 		}
 	}
+
+
+	@Override
+	public User getUserByEmail(String email) {
+		
+
+		try{
+		  session = sessionFactory.openSession();
+		Criteria ctr = session.createCriteria(User.class);
+		ctr.add(Restrictions.eq("email", email));
+		User user = (User) ctr.uniqueResult();
+		return user;
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}
+	}
+	
 	
 
 }

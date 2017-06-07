@@ -13,4 +13,6 @@ public interface UserSerInter
 {
 	public boolean registration(User user);
 	public User login(String mail, String password);
+	public User getUserByEmail(String email);
+
 }

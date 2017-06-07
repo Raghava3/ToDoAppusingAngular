@@ -22,5 +22,7 @@ public interface UserDaoInter
 	 * @return User Object
 	 */
 	public User login(String mail, String password);
+	
+	public User getUserByEmail(String email);
 
 }

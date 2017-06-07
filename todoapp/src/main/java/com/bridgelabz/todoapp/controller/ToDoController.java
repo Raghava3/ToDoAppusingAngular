@@ -48,9 +48,11 @@ public class ToDoController {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		if (user != null && session != null) {
+			
 			List<ToDo> todoList = toDoService.getNotes(user.getId());
 			System.out.println(user.getId());
 			if (!todoList.isEmpty()) {
+				Collections.reverse(todoList);
 				ObjectMapper mapper = new ObjectMapper();
 				ObjectNode root = mapper.createObjectNode();
 				root.put("status", "success");
@@ -63,7 +65,7 @@ public class ToDoController {
 			else {
 				ObjectMapper mapper = new ObjectMapper();
 				ObjectNode root = mapper.createObjectNode();
-				root.put("status", "notes are not added");
+				root.put("status", "notes are not there");
 				root.putPOJO("todo", todoList);
 				root.putPOJO("user", user);
 				String data = mapper.writeValueAsString(root);

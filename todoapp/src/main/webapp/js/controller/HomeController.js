@@ -235,12 +235,6 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	}
 	
 	
-	this.updateReminder = function(toDo, remainder) {
-		console.log(toDo+" "+remainder);
-	}
-	
-	
-	
 	this.cancelRemainder = function(todo) {
 		console.log(todo.remainder);
 		todo.remainder = null;

@@ -1,7 +1,7 @@
 
  <div  data-ng-controller="HomeController as hc">
 <nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-	   <div class="navbar-header" style="margin-top:10px">
+	   <div class="navbar-header" style="margin-top:15px">
           <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"></a>
 			<span>
 				<span data-ng-click="visible=!visible; hc.move()" style="cursor: pointer;">
@@ -100,10 +100,10 @@
 		<div class="col-sm-3"></div>
 			<div class="col-sm-7	">
 					<div>
-						<div >
+						<div style="margin-top: 15px">
 						
 							<div data-ng-show ="IsVisible" id="title"  data-ng-model="toDo.title" newcontenteditable contenteditable="true" placeholder="Title" style="font-weight: bold;"></div>
-							<div id="note"  data-ng-model="toDo.note" data-ng-click="hc.showHide()" newcontenteditable contenteditable="true" placeholder="write a note..."></div>
+							<div id="note"  data-ng-model="toDo.note" data-ng-click="hc.showHide()" newcontenteditable contenteditable="true" placeholder="Take a Note..."></div>
 							
 							<div class="row" data-ng-show ="done" id="done">
 										<div class="col-sm-4">
@@ -221,7 +221,7 @@
 										<div  uib-dropdown-menu style="margin-top:-105px; margin-left: 23px">
 											<div style="margin-left: 10px; padding-right: 10px;">
 												<span>
-													<img style=" cursor: pointer;" src="images/White.png" width="32px" height="32px"	data-ng-click="hc.setColor(todo,'#ffffff')">
+													<img style=" cursor: pointer;" src="images/orange.png" width="32px" height="32px"	data-ng-click="hc.setColor(todo,'#ff7f00')">
 													<img style=" cursor: pointer;"src="images/red.png" width="37px" height="37px"	data-ng-click="hc.setColor(todo,'#ff8a80')">
 													<img style=" cursor: pointer;"src="images/yellow.png" width="30px" height="30px" data-ng-click="hc.setColor(todo,'#ffd180')">
 													<img style=" cursor: pointer;"src="images/sky blue.png" width="37px" height="37px"	data-ng-click="hc.setColor(todo,'#80f8ff')">

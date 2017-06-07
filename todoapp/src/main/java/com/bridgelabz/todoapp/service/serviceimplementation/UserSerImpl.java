@@ -28,5 +28,12 @@ public class UserSerImpl implements UserSerInter
 	public User login(String mail, String password) {
 		return userDaoInter.login(mail, password);
 	}
+
+
+	@Override
+	public User getUserByEmail(String email) {
+		return userDaoInter.getUserByEmail( email);
+
+	}
 	
 }
