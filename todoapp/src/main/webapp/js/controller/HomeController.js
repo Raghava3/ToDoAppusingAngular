@@ -270,13 +270,25 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 // this function to bring  shadow around head while scrolling up
 	$(window).scroll(function(){
 	    if ($(window).scrollTop() >= 30) {
-	    	console.log("coming inside the shadow" );
+	    	
 	       $('#navbar').addClass('shadow-header');
 	    }
 	    else {
-	    	console.log("coming inside the else part");
 	       $('#navbar').removeClass('shadow-header');
 	    }
 	});
+	
+	
+	function fbLogoutUser() {
+	    FB.getLoginStatus(function(response) {
+	    	console.log("coming inside logout");
+	        if (response && response.status === 'connected') {
+	            FB.logout(function(response) {
+	                document.location.reload();
+	            });
+	        }
+	    });
+	}
+
 	
 });

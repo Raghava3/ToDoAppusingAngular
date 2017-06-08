@@ -32,6 +32,7 @@ public class LogOutController {
 		///if(session.getAttribute("user")!=null)      //checks  if session existed or not if session exist then session will be invalidated
 		//{
 			System.out.println("coming inside the loout");
+			
 			session.invalidate();
 			req.getSession();
 			ObjectMapper mapper = new ObjectMapper();

@@ -26,7 +26,8 @@
 	<bean id="regValidation" class="com.bridgelabz.todoapp.validator.RegValidation"></bean>
 	<bean id="toDoService"   class="com.bridgelabz.todoapp.service.serviceimplementation.ToDoServiceImpl"></bean>
 	<bean id="toDoDao"       class="com.bridgelabz.todoapp.dao.daoimplementation.ToDoDaoImpl"></bean>
-   <bean id="connection" class="com.bridgelabz.todoapp.controller.FacebookConnection"></bean>
+    <bean id="connection" class="com.bridgelabz.todoapp.controller.FacebookConnection"></bean>
+    <bean id="googleConnection" class="com.bridgelabz.todoapp.controller.GoogleConnection"></bean>	
 	<!-- Pooled data source. -->
 	<bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
