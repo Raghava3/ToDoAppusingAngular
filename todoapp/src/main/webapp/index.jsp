@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="css/Signup.css">
 <link rel="stylesheet" href="css/Login.css">
 <link rel="stylesheet" href="css/Home.css">
+<link rel="stylesheet" href="css/Trash.css">
 
 <title>ToDoApp</title>
 </head>
@@ -50,6 +51,7 @@
 <script src="js/controller/HomeController.js" type="text/javascript"></script>
 <script src="js/controller/LoginController.js" type="text/javascript"></script>
 <script src="js/controller/LogoutController.js" type="text/javascript"></script>
+<script src="js/controller/TrashController.js" type="text/javascript"></script>
 
 
 <script src="js/service/toDoHomeService.js" type="text/javascript"></script>

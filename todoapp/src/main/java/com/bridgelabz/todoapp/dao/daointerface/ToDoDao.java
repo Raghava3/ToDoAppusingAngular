@@ -3,6 +3,7 @@ package com.bridgelabz.todoapp.dao.daointerface;
 import java.util.List;
 
 import com.bridgelabz.todoapp.model.ToDo;
+import com.bridgelabz.todoapp.model.TrashToDo;
 
 public interface ToDoDao {
 	
@@ -49,4 +50,13 @@ public interface ToDoDao {
 	 */
 	public void cancelRemainder(ToDo toDo);
 
+	public boolean  moveToTrash(TrashToDo trashToDo);
+	
+	/**
+	 * @param id
+	 * @return List
+	 */
+	public List<ToDo> getTrashNotes(int UserId);
+
+	
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bridgelabz.todoapp.dao.daointerface.ToDoDao;
 import com.bridgelabz.todoapp.model.ToDo;
+import com.bridgelabz.todoapp.model.TrashToDo;
 import com.bridgelabz.todoapp.service.serviceinterface.ToDoService;
 
 public class ToDoServiceImpl implements ToDoService {
@@ -60,6 +61,18 @@ public class ToDoServiceImpl implements ToDoService {
 	public void cancelRemainder(ToDo toDo) {
 		
 		toDoDao.cancelRemainder(toDo);
+	}
+
+	@Override
+	public boolean moveToTrash(TrashToDo trashToDo) {
+		System.out.println("coming inside the service");
+		return toDoDao.moveToTrash(trashToDo);
+		
+	}
+
+	@Override
+	public List<ToDo> getTrashNotes(int userId) {
+		 return toDoDao.getTrashNotes(userId);
 	}
 	
 

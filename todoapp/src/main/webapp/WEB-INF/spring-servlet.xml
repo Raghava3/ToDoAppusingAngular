@@ -50,6 +50,10 @@
 				<value>
 				    com.bridgelabz.todoapp.model.ToDo
 				</value>
+				
+				<value>
+				    com.bridgelabz.todoapp.model.TrashToDo
+				</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

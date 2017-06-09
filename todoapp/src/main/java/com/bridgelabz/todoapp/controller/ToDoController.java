@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bridgelabz.todoapp.model.ToDo;
+import com.bridgelabz.todoapp.model.TrashToDo;
 import com.bridgelabz.todoapp.model.User;
 import com.bridgelabz.todoapp.service.serviceinterface.ToDoService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -368,5 +369,113 @@ public class ToDoController {
 		
 		
 	}
+	
+	
+	/**
+	 * @param toDo
+	 * @param request
+	 * @param response
+	 * @return ResponseEntity
+	 * @throws JsonProcessingException
+	 */
+	@RequestMapping(value="moveToTrash", method=RequestMethod.POST)
+	public ResponseEntity<String> moveToTrash(@RequestBody TrashToDo trashToDo, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+		
+		System.out.println("coming in the move to trash method");
+		System.out.println("trsh object"+trashToDo.toString());
+		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		if( session != null && user != null ) {
+			trashToDo.setUser(user);
+			
+			System.out.println("coming in the move to trash method user is not null");
+
+			boolean result = toDoService.moveToTrash( trashToDo );
+			if( result ) {
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("message", "toDo Coppied");
+				root.putPOJO("todoCopy", trashToDo);
+				String data = mapper.writeValueAsString(root);
+				return new ResponseEntity<String>(data, HttpStatus.OK);
+			}
+			else {
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("message", "toDo not Coppied");
+				String data = mapper.writeValueAsString(root);
+				return new ResponseEntity<String>(data, HttpStatus.NOT_ACCEPTABLE);
+			}
+			
+		}
+		else {
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("message", "login required");
+			String data = mapper.writeValueAsString(root);
+			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
+		}
+	}
+	
+	
+	/**
+	 * to get all the notes by using the usedId
+	 * 
+	 * @param UserId
+	 * @param request
+	 * @param response
+	 * @return String message and status
+	 * @throws JsonProcessingException
+	 */
+	@RequestMapping(value = "getTrashNotes", method = RequestMethod.GET)
+	public ResponseEntity<String> getTrashNotes(HttpServletRequest request, HttpServletResponse response)
+			throws JsonProcessingException {
+
+		System.out.println("inside getnotes");
+
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		if (user != null && session != null) {
+			
+			List<ToDo> trashtodoList = toDoService.getTrashNotes(user.getId());
+			System.out.println(user.getId());
+			if (!trashtodoList.isEmpty()) {
+				Collections.reverse(trashtodoList);
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("status", "success");
+				root.putPOJO("trashtodo", trashtodoList);
+				root.putPOJO("user", user);
+				String data = mapper.writeValueAsString(root);
+				System.out.println(data);
+				return new ResponseEntity<String>(data, HttpStatus.OK);
+			  } 
+			else {
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("status", "notes are not there");
+				root.putPOJO("todo", trashtodoList);
+				root.putPOJO("user", user);
+				String data = mapper.writeValueAsString(root);
+				System.out.println(data);
+				return new ResponseEntity<String>(data, HttpStatus.OK);
+			}
+		} 
+		else {
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("status", "no user");
+			String data = mapper.writeValueAsString(root);
+			System.out.println(data);
+			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
+		}
+	}
+
+	
+	
+	
+	
+	
 	
 }

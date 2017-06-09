@@ -24,6 +24,11 @@ myToDo.config(function ($stateProvider, $urlRouterProvider) {
        templateUrl:"html/Home.html",
 	  })
 	  
+	  .state('Trash',{
+	  url:"/Trash",
+    templateUrl:"html/Trash.html",
+  })
+	  
   $urlRouterProvider.otherwise('/Login');
   
   
@@ -48,7 +53,7 @@ myToDo.directive('newcontenteditable', [function() {
             ctrl.$render = function() {
                 element.html(ctrl.$viewValue);
             };
-            
+            	
             // load init value from DOM
             //ctrl.$render();
             

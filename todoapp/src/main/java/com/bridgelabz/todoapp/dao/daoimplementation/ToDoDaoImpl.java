@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bridgelabz.todoapp.dao.daointerface.ToDoDao;
 import com.bridgelabz.todoapp.model.ToDo;
+import com.bridgelabz.todoapp.model.TrashToDo;
 
 public class ToDoDaoImpl implements ToDoDao{
 
@@ -190,6 +191,47 @@ public class ToDoDaoImpl implements ToDoDao{
 			if(session!=null) {
 				session.close();
 			}
+		}
+	}
+
+	@Override
+	public boolean moveToTrash(TrashToDo trashToDo) {
+
+		System.out.println("coming inside the daoimpl");
+		
+		try{
+			session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			session.save(trashToDo);
+			transaction.commit();
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		finally {
+			if( session != null ) {
+				session.close();
+			}
+		}
+	}
+
+	@Override
+	public List<ToDo> getTrashNotes(int UserId) {
+		try {
+			session = sessionFactory.openSession();
+			
+			String hql = "from TrashToDo where user_id=:userId";
+			Query query = session.createQuery(hql);
+			query.setParameter("userId", UserId);
+			List<ToDo> notes = query.list();
+			
+			return notes;
+		}
+		finally {
+			if(session != null)
+			session.close();
 		}
 	}
 

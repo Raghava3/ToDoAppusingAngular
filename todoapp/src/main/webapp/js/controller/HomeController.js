@@ -62,24 +62,48 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	
 	
 
-	this.deleteNote = function(id, index) {
-		console.log(id+" "+index);
-		var delToDoObj = homeService.deleteNote(id);
+	this.deleteNote = function(toDo, index) 
+	{
+		var trashToDo={};
+		//this is the changes //
+		trashToDo.title=toDo.title;
+		trashToDo.note=toDo.note;
+		trashToDo.reminder=toDo.reminder;
+		trashToDo.color=toDo.color;	
+		console.log(trashToDo);
+		var moveToTrash=homeService.moveToTrash(trashToDo);
+	
+		moveToTrash.then(function(data)
+		{
 		
-		delToDoObj.then(function(data) {
-			
-			if( data.status == 200 ) {
-				if(index > -1){
-					$scope.toDoList.splice(index, 1);
-				}
+			if(data.status==200)
+				{
 				
-			}
-			
-		}).catch( function(error) {
-			
+				var delToDoObj = homeService.deleteNote(toDo.id);
+				
+				delToDoObj.then(function(data) 
+					{
+					
+					  if( data.status == 200 ) 
+					   {
+						if(index > -1)
+						{
+							$scope.toDoList.splice(index, 1);
+						}
+					   }
+					
+				}).catch( function(error) 
+						{
+					$state.go('Login');
+				        }
+				);
+		}}).catch( function(error) 
+				{
 			$state.go('Login');
-		});
-	}
+		        }
+		);
+		}
+	
 	
 	
 	this.showHide = function() {
@@ -158,6 +182,7 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	
 	this.move = function() {
 		if($scope.visible){
+			console.log("coming inside the move visi")
 			$scope.move = {"margin-left":"15%","transition":"0.6s ease"}
 		}
 		else {
@@ -291,4 +316,31 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	}
 
 	
+	$scope.trash=function()
+	{
+		$state.go("Trash");
+	}
+	
+	$scope.trashToHome=function()
+	{
+		console.log("coming inside trashtogohome");
+		$state.go("Home");
+	}
+	
+	this.pinUp=function(toDo)
+	{
+	
+		toDo.pinUp=true;
+        var updToDoObj = homeService.updateNote(toDo);
+		
+		updToDoObj.then(function(data) {
+			if(data.status == 200) {
+				
+			}
+		}).catch(function(error) {
+			$state.go('signIn');
+		});
+		
+		
+	}
 });

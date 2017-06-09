@@ -74,4 +74,22 @@ this.setColor=function(toDo)
 	
 }
 
+
+this.moveToTrash=function(trashToDo)
+{
+	console.log("coming inside service trash");
+    return $http({
+    	url:"http://localhost:8030/todoapp/moveToTrash",
+    	method:"POST",
+       data:trashToDo
+    })	
+}
+
+this.getTrashNotes = function(){
+	return $http({
+		url:"http://localhost:8030/todoapp/getTrashNotes",
+		method:"GET"
+	});
+}
+
 });

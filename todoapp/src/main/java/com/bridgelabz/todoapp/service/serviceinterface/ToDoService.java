@@ -3,6 +3,7 @@ package com.bridgelabz.todoapp.service.serviceinterface;
 import java.util.List;
 
 import com.bridgelabz.todoapp.model.ToDo;
+import com.bridgelabz.todoapp.model.TrashToDo;
 
 public interface ToDoService {
 	
@@ -50,6 +51,19 @@ public interface ToDoService {
 	 * @param toDoId
 	 */
 	public void cancelRemainder(ToDo toDo);
+
+	/**
+	 * @param toDo
+	 */
+	public boolean moveToTrash(TrashToDo trashToDo);
+
+	/**
+	 * to get all notes added for particular user
+	 * 
+	 * @param id
+	 * @return List
+	 */
+	public List<ToDo> getTrashNotes(int userId);
 
 	
 }

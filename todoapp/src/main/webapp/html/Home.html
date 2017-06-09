@@ -84,11 +84,17 @@
 	      </div>
 	</nav>
 	<!-- this is for toggling--> 
-<div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color: #C1C1C1">
+<div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color:E8E8E8 /* #C1C1C1 */">
     <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
     <font color="red" link="#043e62">
     
       <li><a href="#Login">SignOut</a></li>
+       <li>
+       <div data-ng-click="trash()">
+		    <img alt="notifn" src="images/trash.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
+           <div style="margin-top: -24px;color: #737373;margin-left: 20px;" >trash</div>		    
+	</div>
+	 </li>
    </font>
     </ul>
   </div>
@@ -247,7 +253,7 @@
 											<div bgcolor="white">
 												<ul uib-dropdown-menu class="dropdown-menu" style="cursor: pointer; margin-left: 2%; margin-top: 10px;">
 													<li data-ng-click="hc.makeCopy(todo)"><a>copy</a></li>
-													<li data-ng-click="hc.deleteNote(todo.id, $index)"><a>Delete Note</a></li>
+													<li data-ng-click="hc.deleteNote(todo, $index)"><a>Delete Note</a></li>
 											
 												</ul>
 											</div>

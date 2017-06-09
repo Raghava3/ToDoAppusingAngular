@@ -1,6 +1,5 @@
 package com.bridgelabz.todoapp.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -12,12 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
-
 @Entity
-@Table(name = "ToDo_Manager")
-public class ToDo implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+@Table(name="TrashTodo")
+public class TrashToDo {
 
 	@Id
 	@GenericGenerator(name = "gen", strategy = "increment")
@@ -27,15 +23,6 @@ public class ToDo implements Serializable {
 	private String note;
 	private Date remainder;
 	private String color;
-	private boolean pinup;
-	public boolean isPinup() {
-		return pinup;
-	}
-
-	public void setPinup(boolean pinup) {
-		this.pinup = pinup;
-	}
-
 	private Date upDated = new Date();
 
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -48,6 +35,12 @@ public class ToDo implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "TrashToDo [id=" + id + ", title=" + title + ", note=" + note + ", remainder=" + remainder + ", color="
+				+ color + ", upDated=" + upDated + ", user=" + user + "]";
 	}
 
 	public String getTitle() {
@@ -97,5 +90,5 @@ public class ToDo implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	
 }
