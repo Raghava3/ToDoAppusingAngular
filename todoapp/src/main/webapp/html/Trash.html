@@ -1,13 +1,12 @@
- 
- <div  data-ng-controller="TrashController as tc">
-<nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div  data-ng-controller="TrashController as tc">
+<nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #636363">
 	   <div class="navbar-header" style="margin-top:15px">
           <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"></a>
 			<span>
 				<span data-ng-click="visible=!visible; hc.move()" style="cursor: pointer;">
 					<img alt="icon" data-toggle="tooltip" title="Menu" src="images/menuWhite.png" width="30px" height="28px" style="margin-top: 0px;margin-left: -30px;">
 				</span>
-					<span style="padding-left: 45px; margin-top: 33px; font-size: 30px; color:black;"><font  face="verdana">trash</font></span>
+					<span style="padding-left: 45px; margin-top: 33px; font-size: 30px; color:black;"><font  face="verdana" color="white">Trash</font></span>
 			</span>	
 				
 			</span>
@@ -131,8 +130,8 @@
 										
 											<div bgcolor="white">
 												<ul uib-dropdown-menu class="dropdown-menu" style="cursor: pointer; margin-left: 2%; margin-top: 10px;">
-													<li data-ng-click="hc.makeCopy(todo)"><a>moveback</a></li>
-													<li data-ng-click="hc.deleteNote(todo, $index)"><a>Delete permnently</a></li>
+													<li data-ng-click="hc.makeCopy(todo)"><a>Delete forever</a></li>
+													<li data-ng-click="hc.deleteNote(todo, $index)"><a>Restore</a></li>
 											
 												</ul>
 											</div>

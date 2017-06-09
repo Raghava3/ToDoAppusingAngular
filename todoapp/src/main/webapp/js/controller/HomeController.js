@@ -321,11 +321,7 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 		$state.go("Trash");
 	}
 	
-	$scope.trashToHome=function()
-	{
-		console.log("coming inside trashtogohome");
-		$state.go("Home");
-	}
+	
 	
 	this.pinUp=function(toDo)
 	{

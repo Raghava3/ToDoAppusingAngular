@@ -3,7 +3,7 @@
 	width:100%;
 	height:47px;
 	outline: none;
-	background-color: #f5b400;/* #fcaf3e; */
+/* 	 background-color: #f5b400;#fcaf3e; */
 	border: none;
 	padding-left: 30px;
 	margin-top: 7px;
@@ -23,8 +23,8 @@
 #navBar
 {
 	height: 80px;
-	background-color:#fb0;/* #043e62; */
-	border:none;
+/* 	background-color:#fb0;#043e62;
+ */	border:none;
 
 }
 
@@ -293,5 +293,5 @@
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: silver;
+  color: black;
 }	

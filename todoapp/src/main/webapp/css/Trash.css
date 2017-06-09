@@ -3,7 +3,7 @@
 	width:100%;
 	height:47px;
 	outline: none;
-	background-color: #f5b400;/* #fcaf3e; */
+	/* background-color:  rgb(124, 124, 124);#fcaf3e; */
 	border: none;
 	padding-left: 30px;
 	margin-top: 7px;
@@ -19,6 +19,14 @@
 {
 	padding-top: 15px;
 	margin-left: -50px;
+}
+
+#navBar
+{
+	height: 80px;
+/* 	background-color:#babdb6;#043e62;
+ */	border:none;
+
 }
 
 #refresh
@@ -38,7 +46,7 @@
 }
 
 
-#search:focus{
+#search1:focus{
 	background-color: white;
 }
 
