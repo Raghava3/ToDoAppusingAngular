@@ -1,12 +1,12 @@
-<div  data-ng-controller="TrashController as tc">
-<nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #636363">
+<div  data-ng-controller="HomeController as hc">
+<nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: rgba(96,125,139,1)">
 	   <div class="navbar-header" style="margin-top:15px">
           <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"></a>
 			<span>
 				<span data-ng-click="visible=!visible; hc.move()" style="cursor: pointer;">
 					<img alt="icon" data-toggle="tooltip" title="Menu" src="images/menuWhite.png" width="30px" height="28px" style="margin-top: 0px;margin-left: -30px;">
 				</span>
-					<span style="padding-left: 45px; margin-top: 33px; font-size: 30px; color:black;"><font  face="verdana" color="white">Trash</font></span>
+					<span style="padding-left: 45px; margin-top: 33px; font-size: 30px; color:black;"><font  face="verdana" color="white">Archive</font></span>
 			</span>	
 				
 			</span>
@@ -74,11 +74,7 @@
 	          			</div>
 	          			</div>
 	          		</span>
-	          			
-	          		
 	          	</li>
-				
-				
 	          </ul>
 	      </div>
 	</nav>
@@ -86,16 +82,17 @@
 <div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color:E8E8E8 /* #C1C1C1 */">
     <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
     
+      
        <li>
-       <div data-ng-click="trash()">
-		    <img alt="notifn" src="images/home.png" width="20px;" height="20px;" data-toggle="tooltip" title="home" style=" cursor: pointer; margin-top: 21px;">
-           <div style="margin-top: -24px;color: #737373;margin-left: 20px;" data-ng-click="trashToHome()">Home</div>		    
+       <div data-ng-click="archiveToHome()">
+		    <img alt="notifn" src="images/home.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
+           <div style="margin-top: -24px;color: #737373;margin-left: 20px;">Home</div>		    
 	</div>
 	 </li>
 	 <li>
-       <div data-ng-click="trash()">
-		     <img alt="notifn" src="images/archive.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
-       <div style="margin-top: -24px;color: #737373;margin-left: 20px;" data-ng-click="trashToArchive()">Archive</div>		    
+       <div data-ng-click="archiveToTrash()">
+		     <img alt="notifn" src="images/trash.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
+       <div style="margin-top: -24px;color: #737373;margin-left: 20px;" >Trash</div>		    
 	</div>
 	 </li>
    </font>
@@ -112,7 +109,7 @@
 					
 					<div class="cont" data-ng-class="{list: isList, grid: !isList}">
 						<div class="cardRow">
-							<div class="card" id="cardId" data-ng-repeat="trashtodo in trashToDoList" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{trashtodo.color}};">
+							<div class="card" id="cardId" data-ng-if="trashtodo.archive" data-ng-repeat="trashtodo in toDoList" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{trashtodo.color}};">
 						
 								<div  data-ng-click="hc.popUp(todo, $index)" >
 									<div id="toDoTitle">

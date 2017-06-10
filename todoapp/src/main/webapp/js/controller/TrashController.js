@@ -14,7 +14,7 @@ myToDo.controller("TrashController", function($scope, $state,homeService)
 		
 		if( data.status == 200 ) {
 			console.log(data.data.todo);
-			$scope.trashToDoList = data.data.trashtodo;
+			$scope.trashToDoList = data.data.todo;
 		}
 		else{
 			
@@ -76,7 +76,11 @@ myToDo.controller("TrashController", function($scope, $state,homeService)
 		console.log("coming inside trashtogohome");
 		$state.go("Home");
 	}
-	
+	$scope.trashToArchive=function()
+	{
+		console.log("coming inside trashtogohomasdfsade");
+		$state.go("Archive");
+	}
 	
 	
 	

@@ -28,7 +28,10 @@ myToDo.config(function ($stateProvider, $urlRouterProvider) {
 	  url:"/Trash",
     templateUrl:"html/Trash.html",
   })
-	  
+	  .state('Archive',{
+	  url:"/Archive",
+    templateUrl:"html/Archive.html",
+  })
   $urlRouterProvider.otherwise('/Login');
   
   

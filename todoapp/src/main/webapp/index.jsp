@@ -34,7 +34,8 @@
 <link rel="stylesheet" href="css/Login.css">
 <link rel="stylesheet" href="css/Home.css">
 <link rel="stylesheet" href="css/Trash.css">
-
+<link rel="stylesheet" href="css/Archive.css">
+ 
 <title>ToDoApp</title>
 </head>
 

@@ -445,7 +445,7 @@ public class ToDoController {
 				ObjectMapper mapper = new ObjectMapper();
 				ObjectNode root = mapper.createObjectNode();
 				root.put("status", "success");
-				root.putPOJO("trashtodo", trashtodoList);
+				root.putPOJO("todo", trashtodoList);
 				root.putPOJO("user", user);
 				String data = mapper.writeValueAsString(root);
 				System.out.println(data);

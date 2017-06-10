@@ -316,7 +316,7 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	}
 
 	
-	$scope.trash=function()
+	this.trash=function()
 	{
 		$state.go("Trash");
 	}
@@ -346,4 +346,37 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 			}
 		})
 	}
+	
+	this.archiveNote=function(toDo)
+	{
+		console.log("coming inside adding to arcive");
+		toDo.archive=true;
+	 var arcObj=	homeService.pinUp(toDo);
+		
+	}
+	this.unArchiveNote=function(toDo)
+	{
+		toDo.archive=false;
+		var arcObj=	homeService.pinUp(toDo);
+		
+	}
+	
+	this.archive=function()
+	{
+		console.log("coming inside archive");
+		$state.go("Archive");
+	}
+	$scope.archiveToHome=function()
+    {
+		console.log("coming inside trashtogohome");
+		$state.go("Home");
+	}
+
+$scope.archiveToTrash=function()
+{
+	console.log("coming inside trashtogotrash");
+	$state.go("Trash");
+}
+
+	
 });

@@ -1,7 +1,7 @@
 <div class="cont" data-ng-class="{list: isList, grid: !isList}">
 		<div class="cardRow">
 				<div style="margin-bottom: 25px;margin-left: 30px"><b><font style="color: rgba(108,108,108,1);font-size: 18px">Pinned</font></b></div>
-			<div data-ng-if="todo.pinup" class="card" id="cardId" data-ng-repeat="todo in toDoList | filter:searchText" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
+			<div data-ng-if="todo.pinup&&!todo.archive" class="card" id="cardId" data-ng-repeat="todo in toDoList | filter:searchText" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
 		
 				<div  data-ng-click="hc.popUp(todo, $index)" ><!-- | orderBy:'-' -->
 					<div id="toDoTitle">{{todo.title}}
