@@ -91,5 +91,21 @@ this.getTrashNotes = function(){
 		method:"GET"
 	});
 }
-
+this.pinUp = function(toDo) {
+	return $http({
+		url:"http://localhost:8030/todoapp/updateNote",
+		method:"POST",
+		data:toDo
+	});
+	
+}
+this.unPinUp = function(toDo) {
+	console.log("coming inside the service");
+	return $http({
+		url:"http://localhost:8030/todoapp/updateNote",
+		method:"POST",
+		data:toDo
+	});
+	
+}
 });

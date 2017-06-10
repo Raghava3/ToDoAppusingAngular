@@ -323,20 +323,27 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	
 	
 	
-	this.pinUp=function(toDo)
-	{
 	
-		toDo.pinUp=true;
-        var updToDoObj = homeService.updateNote(toDo);
-		
-		updToDoObj.then(function(data) {
-			if(data.status == 200) {
-				
+	this.pinUp = function(toDo) {
+		toDo.pinup = true;
+		var pinObj = homeService.pinUp(toDo);
+		console.log("coming inside pinup");
+		pinObj.then( function(data) {
+			if( data.status == 200 ){
 			}
-		}).catch(function(error) {
-			$state.go('signIn');
-		});
+		})
 		
+	}
+	
+	this.unPinUp = function(toDo) {
+		console.log("coming inside the controller");
+		toDo.pinup = false;
+		var unpinObj = homeService.unPinUp(toDo);
 		
+		unpinObj.then( function(data) {
+			if( data.status == 200 )
+			{
+			}
+		})
 	}
 });
