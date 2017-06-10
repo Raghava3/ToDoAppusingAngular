@@ -1,101 +1,96 @@
 <div  data-ng-controller="HomeController as hc">
-<nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: rgba(96,125,139,1)">
-	   <div class="navbar-header" style="margin-top:15px">
-          <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"></a>
-			<span>
-				<span data-ng-click="visible=!visible; hc.move()" style="cursor: pointer;">
-					<img alt="icon" data-toggle="tooltip" title="Menu" src="images/menuWhite.png" width="30px" height="28px" style="margin-top: 0px;margin-left: -30px;">
-				</span>
-					<span style="padding-left: 45px; margin-top: 33px; font-size: 30px; color:black;"><font  face="verdana" color="white">Archive</font></span>
-			</span>	
-				
-			</span>
+ <nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: rgba(96,125,139,1)">
+  <div class="navbar-header" style="margin-top:15px">
+    <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"></a>
+	<span>
+	 <span data-ng-click="visible=!visible; hc.move()" style="cursor: pointer;">
+	  <img alt="icon" data-toggle="tooltip" title="Menu" src="images/menuWhite.png" width="30px" height="28px" style="margin-top: 0px;margin-left: -30px;">
+	 </span>
+	 <span style="padding-left: 45px; margin-top: 33px; font-size: 30px; color:black;">
+		 <font  face="verdana" color="white">
+		   Archive
+		  </font>
+	 </span>
+	</span>	
 	
-           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" style="margin-right:12%;" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button> 	
-      </div>
-      
-      
-       
-      
-      
-      
-      <div id="navbar" class="navbar-collapse collapse">
-	       <ul class="nav navbar-nav navbar-right" id="navBar" style="width: 78% ">
-
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" style="margin-right:12%;" aria-controls="navbar">
+        <span class="sr-only">
+         Toggle navigation
+        </span>
+     </button> 	
+    </div>
+        
+    <div id="navbar" class="navbar-collapse collapse">
+	    <ul class="nav navbar-nav navbar-right" id="navBar" style="width: 78% ">
 				<li id="srchwdt">
 					<input type="text" placeholder="Search" id="search"   data-toggle="tooltip" title="Search" data-ng-click=hc.searchDiv()> 
 				</li>
 					          
 				<li id="refresh">
-			<font color="white"><span class="glyphicon glyphicon-refresh" data-toggle="tooltip" title="Refresh"></span></font>
+		             <font color="white"><span class="glyphicon glyphicon-refresh" data-toggle="tooltip" title="Refresh"></span></font>
 				</li>
-		      
           		
 				<li>
 		    		<font color="white"><span  class="glyphicon" data-ng-click="isList = !isList" data-ng-class="{'glyphicon-list': !isList, 'glyphicon-th-large': isList}" style="margin-top:20px;   font-size: 17px;margin-left: 23px"></span></font>
 				</li>
 				
-				   <li>
-		            <span>
+				 <li>
+		           <span>
 		            <img alt="notifn" src="images/notification.png" width="20px;" height="20px;" data-toggle="tooltip" title="Notification" style=" cursor: pointer; margin-top: 21px;margin-left: 37px;">
-		            </span>
-				</li>
+		           </span>
+				 </li>
 					
-	            <li>
-	            	<span uib-dropdown >
-	            	
-	            	<div class="dropdown-toggle" uib-dropdown-toggle style="width: 40px; height:40px; border-radius: 50%; background-color: white; padding-left: 10px; font-size: 30px; margin-top:15px;
-	            	margin-left:200px; background-color: #2A4976; color:white; cursor: pointer;" data-toggle="tooltip" title="profile">{{user.fullName.charAt(0)| uppercase}}</div>
-	          			<div  uib-dropdown-menu style="margin-right: -329px;">
-	          				
-	          				<div class="col-sm-3" style="width: 300px;height: 130px;padding-top: 10px;border-bottom: 2px solid;">
-	          				
-	          					<div class="col-sm-1" id="userChar" data-toggle="tooltip" title="Profile" >
-	          						{{user.fullName.charAt(0)|uppercase}}
-	          					</div>
-	          					<div class="col-sm-1" style="margin-top: 18px;">
-	          					
-	          					<span style="font-weight: bold; padding-left: 15px; padding-top: 10px" data-toggle="tooletip" title="name">{{user.fullName}}</span>
-	          					<span style="padding-left: 15px;" data-toggle="tooltip" title="contact no.">{{ user.mobileNumber}}</span>
-	          					 <span style="padding-left: 15px;" data-toggle="tooltip" title="email">{{ user.email}}</span> 
-	          					
-	          					</div>
-	          				</div>
+	             <li>
+	             	<span uib-dropdown >
+	            	<div class="dropdown-toggle" uib-dropdown-toggle style="width: 40px; height:40px; border-radius: 50%; background-color: white; padding-left: 10px; font-size: 30px; margin-top:15px;margin-left:200px; background-color: #2A4976; color:white; cursor: pointer;" data-toggle="tooltip" title="profile">
+	            	{{user.fullName.charAt(0)| uppercase}}
+	            	</div>
+	          		 <div  uib-dropdown-menu style="margin-right: -329px;">
+	          		   <div class="col-sm-3" style="width: 300px;height: 130px;padding-top: 10px;border-bottom: 2px solid;">
+	          			 <div class="col-sm-1" id="userChar" data-toggle="tooltip" title="Profile" >
+	          				 {{user.fullName.charAt(0)|uppercase}}
+	          			 </div>
+	          			 <div class="col-sm-1" style="margin-top: 18px;">
+	          				<span style="font-weight: bold; padding-left: 15px; padding-top: 10px" data-toggle="tooletip" title="name">{{user.fullName}}</span>
+	          				<span style="padding-left: 15px;" data-toggle="tooltip" title="contact no.">{{ user.mobileNumber}}</span>
+	          			    <span style="padding-left: 15px;" data-toggle="tooltip" title="email">{{ user.email}}</span> 
+	          			</div>
+	          		  </div>
 	          			
 	          			<div style="padding-left: 15px; padding-right: 15px;padding-bottom: 10px;">
 	          			 <div data-ng-controller="logoutController as lo">
-	          				 <button style="float: right;margin-top: 5px;" data-ng-click="lo.signOut()">LogOut</button><!-- lo.signOut() -->
-	          			</div>	 
+	          				 <button style="float: right;margin-top: 5px;" data-ng-click="lo.signOut()">
+	          				 LogOut
+	          				 </button><!-- lo.signOut() -->
+	          			 </div>	 
 	          			</div>
-	          			</div>
-	          		</span>
-	          	</li>
-	          </ul>
-	      </div>
+	          		  </div>
+	          	    </span>
+	          	 </li>
+	         </ul>
+	     </div>
 	</nav>
 	<!-- this is for toggling--> 
-<div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color:E8E8E8 /* #C1C1C1 */">
-    <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
-    
-      
+
+  <div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color:E8E8E8">
+     <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
        <li>
-       <div data-ng-click="archiveToHome()">
+        <div data-ng-click="archiveToHome()">
 		    <img alt="notifn" src="images/home.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
-           <div style="margin-top: -24px;color: #737373;margin-left: 20px;">Home</div>		    
-	</div>
-	 </li>
-	 <li>
+              <div style="margin-top: -24px;color: #737373;margin-left: 20px;">
+              Home
+              </div>		    
+	   </div>
+	  </li>
+	 
+	  <li>
        <div data-ng-click="archiveToTrash()">
-		     <img alt="notifn" src="images/trash.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
-       <div style="margin-top: -24px;color: #737373;margin-left: 20px;" >Trash</div>		    
-	</div>
-	 </li>
-   </font>
+		   <img alt="notifn" src="images/trash.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
+              <div style="margin-top: -24px;color: #737373;margin-left: 20px;" >
+               Trash
+              </div>		    
+	   </div>
+	  </li>
     </ul>
   </div>
   
@@ -105,54 +100,37 @@
    <div id="homeBody" class="row"  data-ng-style="move">
 		<div class="col-sm-3"></div>
 			<div class="col-sm-7	">
-					
-					
 					<div class="cont" data-ng-class="{list: isList, grid: !isList}">
 						<div class="cardRow">
 							<div class="card" id="cardId" data-ng-if="trashtodo.archive" data-ng-repeat="trashtodo in toDoList" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{trashtodo.color}};">
-						
 								<div  data-ng-click="hc.popUp(todo, $index)" >
 									<div id="toDoTitle">
 										 <span data-toggle="tooltip" title="rightmark">
 										   <img uib-dropdown-toggle alt="color" src="images/check.png" data-ng-show="icons"  width="25px;" height="20px;"  style=" cursor: pointer;margin-top: -20px; margin-left: -25px">
 										  </span>
-									
 									<div id="#toDoTitle"><font size="4px" face="verdana">{{trashtodo.title}}</font></div>
 									<div id="toDoNote"><font size="6px" >{{trashtodo.note}}</font></div>
 								</div>
-							
 								<div  id="icons" style="padding-left: 20px;padding-top:10px;">
-								 
 									<span data-ng-show="icons">
-									
 										<span uib-dropdown dropdown-append-to-body >
 											<span uib-dropdown-toggle data-toggle="tooltip" title="More" style="margin-left: 15px;">
 												<img alt="icon" src="images/more.png" width="30px" height="25px">
 											</span>
-										
 											<div bgcolor="white">
 												<ul uib-dropdown-menu class="dropdown-menu" style="cursor: pointer; margin-left: 2%; margin-top: 10px;">
 													<li data-ng-click="hc.makeCopy(todo)"><a>Delete forever</a></li>
 													<li data-ng-click="hc.deleteNote(todo, $index)"><a>Restore</a></li>
-											
 												</ul>
 											</div>
-										
 										</span>
-										
-										
 									</span>
 								</div>
-								
-								
-								
-							
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-2"></div>
-			</div>
-</div> 
-
+		</div>
+  </div> 
 </div>
