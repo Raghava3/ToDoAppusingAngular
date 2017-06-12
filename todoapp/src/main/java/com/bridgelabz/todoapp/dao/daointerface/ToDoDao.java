@@ -58,5 +58,5 @@ public interface ToDoDao {
 	 */
 	public List<ToDo> getTrashNotes(int UserId);
 
-	
+	public int deleteNotePermanently(int id);
 }

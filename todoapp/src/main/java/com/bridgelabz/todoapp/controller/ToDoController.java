@@ -473,7 +473,54 @@ public class ToDoController {
 	}
 
 	
+	/**
+	 * to delete note
+	 * 
+	 * @param id
+	 * @param request
+	 * @param response
+	 * @return String message and status
+	 * @throws JsonProcessingException 
+	 */
 	
+	@RequestMapping(value = "deleteNotePermanently/{id}", method = RequestMethod.POST)
+	public ResponseEntity<String> deleteNotePermanently(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+		HttpSession session = request.getSession(false);
+		User user = (User) session.getAttribute("user");
+		if (session != null && user != null) {
+			int result = toDoService.deleteNotePermanently(id);
+			if (result != 0) {
+				List<ToDo> trashToDoList = toDoService.getNotes(user.getId());
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("status", "success");
+				root.putPOJO("todo", trashToDoList);
+				String data = mapper.writeValueAsString(root);
+				
+				System.out.println( "data"+data ); 
+				
+				return new ResponseEntity<String>(data, HttpStatus.OK);
+				
+			} else {
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("status", "toDoNot there");
+				String data = mapper.writeValueAsString(root);
+				System.out.println( data ); 
+				return new ResponseEntity<String>(data, HttpStatus.NOT_FOUND);
+			}
+		}
+		else{
+		
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("status", "signIn first");
+			String data = mapper.writeValueAsString(root);
+	   		System.out.println( data );
+		    return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
+		
+		}
+	}
 	
 	
 	

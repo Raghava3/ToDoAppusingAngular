@@ -74,6 +74,14 @@ public class ToDoServiceImpl implements ToDoService {
 	public List<ToDo> getTrashNotes(int userId) {
 		 return toDoDao.getTrashNotes(userId);
 	}
+
+	@Override
+	public int deleteNotePermanently(int id) 
+	{
+		System.out.println("coming inside the service impl");
+		
+		return toDoDao.deleteNotePermanently(id);
+	}
 	
 
 }

@@ -65,5 +65,5 @@ public interface ToDoService {
 	 */
 	public List<ToDo> getTrashNotes(int userId);
 
-	
+	public int deleteNotePermanently(int id);
 }

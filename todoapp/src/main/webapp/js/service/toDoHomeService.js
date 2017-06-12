@@ -106,6 +106,17 @@ this.unPinUp = function(toDo) {
 		method:"POST",
 		data:toDo
 	});
-	
 }
+this.deleteNotePermanently= function(id) {
+	console.log("coming inside the service");
+	return $http({
+		url:"http://localhost:8030/todoapp/deleteNotePermanently/"+id,
+		method:"POST"
+	
+	});
+}
+
+
+
+
 });

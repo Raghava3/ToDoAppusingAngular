@@ -98,5 +98,29 @@ myToDo.controller("TrashController", function($scope, $state,homeService)
 		}
 		
 	}
-		}
+	
+	this.deleteNotePermanently=function(trashtodo,index)
+	{
+		var delToDoObj = homeService.deleteNotePermanently(trashtodo.id,index);
+		console.log(index);	
+		
+		delToDoObj.then(function(data) 
+			{
+			console.log(data.status);
+			
+			  if(data.status==200 ) 
+			   {
+				if(index > -1)
+				{
+					$scope.trashToDoList.splice(index,1);
+				}
+			   }
+			
+		}).catch( function(error) 
+				{
+			$state.go('Login');
+		        }
+		);
+	}
+}
 		);

@@ -235,5 +235,28 @@ public class ToDoDaoImpl implements ToDoDao{
 		}
 	}
 
+	@Override
+	public int deleteNotePermanently(int id) {
+		try {
+			
+			System.out.println("coming inside dao");
+			
+			session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			
+			String hql = "delete from TrashToDo where id=:id";
+			Query query = session.createQuery(hql);
+			query.setParameter("id", id);
+			int result = query.executeUpdate();
+			transaction.commit();
+			return result;
+		}
+		finally {
+			if(session != null) {
+				session.close();
+			}
+		}
+	}
+
 }
 
