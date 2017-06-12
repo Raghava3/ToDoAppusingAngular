@@ -75,13 +75,13 @@ this.setColor=function(toDo)
 }
 
 
-this.moveToTrash=function(trashToDo)
+this.moveToTrash=function(toDo)
 {
 	console.log("coming inside service trash");
     return $http({
     	url:"http://localhost:8030/todoapp/moveToTrash",
     	method:"POST",
-       data:trashToDo
+       data:toDo
     })	
 }
 
@@ -114,6 +114,21 @@ this.deleteNotePermanently= function(id) {
 		method:"POST"
 	
 	});
+}
+
+this.restore=function(toDo)
+{
+	toDo.id=toDo.id;
+	toDo.title=toDo.title;
+	toDo.note=toDo.note;
+	toDo.reminder=toDo.reminder;
+	toDo.color=toDo.color;
+	toDo.pinup=false;
+	toDo.archive=false;
+	 return $http({
+   		 url:"http://localhost:8030/todoapp/updateNote",
+   		method:"POST"
+   	 });
 }
 
 

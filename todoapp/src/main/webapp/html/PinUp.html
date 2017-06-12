@@ -10,7 +10,7 @@
   <div data-ng-if="todo.pinup&&!todo.archive" class="card" id="cardId" data-ng-repeat="todo in toDoList | filter:searchText" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
 	<div  data-ng-click="hc.popUp(todo, $index)" ><!-- | orderBy:'-' -->
 		<div id="toDoTitle">{{todo.title}}
-			<div style="float: right; cursor: pointer;"><img alt="icon" src="images/pin.png" width="20px" height="20px" data-toggle="tooltip" title="Pin note" data-ng-click="hc.unPinUp(todo)"></div>
+			<div style="float: right; cursor: pointer;"><img alt="icon" src="images/bluepin.png" width="25px" height="30px" data-toggle="tooltip" title="Pin note" data-ng-click="hc.unPinUp(todo)"></div>
 		</div>
 		<div id="toDoNote">
 		{{todo.note}}
@@ -20,7 +20,7 @@
 		<span data-ng-show="icons">
 			<span uib-dropdown dropdown-append-to-body>
 				<span data-toggle="tooltip" title="Remind me">
-						<img uib-dropdown-toggle alt="color" src="images/remaind.png" width="25px;" height="20px;"  style=" cursor: pointer;"">
+						<img uib-dropdown-toggle alt="color" src="images/remindericon.svg" width="25px;" height="20px;"  style=" cursor: pointer;"">
 				</span>
 				
 				<div uib-dropdown-menu class="dropdown-menu" style="cursor: pointer; margin-left: 10px;  top: 87%; padding:10px; line-height: 2; margin-top: 10px;">
@@ -43,7 +43,7 @@
 				</div>
 			</span>
 					
-		<span uib-dropdown dropdown-append-to-body><img uib-dropdown-toggle alt="color" src="images/color.png" width="20px;" height="20px;" data-toggle="tooltip" title="Change color" style="margin-left: 20px; cursor: pointer;">
+		<span uib-dropdown dropdown-append-to-body><img uib-dropdown-toggle alt="color" src="images/painticon.svg" width="20px;" height="20px;" data-toggle="tooltip" title="Change color" style="margin-left: 20px; cursor: pointer;">
 		  <div  uib-dropdown-menu style="margin-top:-105px; margin-left: 23px">
 			 <div style="margin-left: 10px; padding-right: 10px;">
 				 <span>

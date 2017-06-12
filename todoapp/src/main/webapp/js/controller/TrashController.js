@@ -44,9 +44,9 @@ myToDo.controller("TrashController", function($scope, $state,homeService)
 			if(data.status==200)
 				{
 				
-				var delToDoObj = homeService.deleteNote(toDo.id);
+				var deltoDoObj = homeService.deleteNote(toDo.id);
 				
-				delToDoObj.then(function(data) 
+				deltoDoObj.then(function(data) 
 					{
 					
 					  if( data.status == 200 ) 
@@ -101,13 +101,11 @@ myToDo.controller("TrashController", function($scope, $state,homeService)
 	
 	this.deleteNotePermanently=function(trashtodo,index)
 	{
-		var delToDoObj = homeService.deleteNotePermanently(trashtodo.id,index);
+		var deltoDoObj = homeService.deleteNotePermanently(trashtodo.id,index);
 		console.log(index);	
-		
-		delToDoObj.then(function(data) 
+		deltoDoObj.then(function(data) 
 			{
 			console.log(data.status);
-			
 			  if(data.status==200 ) 
 			   {
 				if(index > -1)
@@ -115,12 +113,27 @@ myToDo.controller("TrashController", function($scope, $state,homeService)
 					$scope.trashToDoList.splice(index,1);
 				}
 			   }
-			
 		}).catch( function(error) 
 				{
 			$state.go('Login');
 		        }
 		);
 	}
-}
-		);
+	
+	this.restore=function(trashtodo)
+	{
+	var toDo={};	
+		toDo.id=trashtodo.id;
+		toDo.title=trashtodo.title;
+		toDo.note=trashtodo.note;
+		toDo.reminder=trashtodo.reminder;
+		toDo.color=trashtodo.color;
+		toDo.pinup=false;
+		toDo.archive=false;
+		
+		var restoreObj=homeService.restore(toDo)
+		
+	}
+
+		
+		});

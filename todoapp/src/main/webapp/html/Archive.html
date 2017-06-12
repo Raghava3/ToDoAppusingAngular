@@ -4,7 +4,7 @@
     <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"></a>
 	<span>
 	 <span data-ng-click="visible=!visible; hc.move()" style="cursor: pointer;">
-	  <img alt="icon" data-toggle="tooltip" title="Menu" src="images/menuWhite.png" width="30px" height="28px" style="margin-top: 0px;margin-left: -30px;">
+	  <img alt="icon" data-toggle="tooltip" title="Menu" src="images/menu.svg" width="30px" height="28px" style="margin-top: 0px;margin-left: -30px;">
 	 </span>
 	 <span style="padding-left: 45px; margin-top: 33px; font-size: 30px; color:black;">
 		 <font  face="verdana" color="white">
@@ -74,22 +74,25 @@
 
   <div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color:E8E8E8">
      <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
-       <li>
+       <li style="margin-left: -45px" id="shadow">
         <div data-ng-click="archiveToHome()">
-		    <img alt="notifn" src="images/home.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
-              <div style="margin-top: -24px;color: #737373;margin-left: 20px;cursor: pointer;">
-              Home
+		    <img alt="notifn" src="images/noteicon.png" width="25px;" height="28px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 20px;margin-left: 25px;">
+              <div style="margin-top: -28px;color: #737373;margin-left: 100px;cursor: pointer;">
+              Notes
               </div>		    
 	   </div>
 	  </li>
 	 
-	  <li>
+	  <li style="margin-left: -45px" id="shadow">
        <div data-ng-click="archiveToTrash()">
-		   <img alt="notifn" src="images/trash.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
-              <div style="margin-top: -24px;color: #737373;margin-left: 20px;cursor: pointer;" >
+		   <img alt="notifn" src="images/trash.png" width="25px;" height="25px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
+              <div style="margin-top: -28px;color: #737373;margin-left: 100px;cursor: pointer;" >
                Trash
               </div>		    
 	   </div>
+	  </li>
+	  <li>
+	  <hr style=" border-top: 1px solid #737373;">
 	  </li>
     </ul>
   </div>

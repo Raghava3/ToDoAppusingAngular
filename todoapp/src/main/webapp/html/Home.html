@@ -6,13 +6,11 @@
 
 	 <span>
 	    <span data-ng-click="visible=!visible; hc.move()" style="cursor: pointer;">
-		  <img alt="icon" data-toggle="tooltip" title="Menu" src="images/menuWhite.png" width="30px" height="28px" style="margin-top: 0px;margin-left: -30px;">
+		  <img alt="icon" data-toggle="tooltip" title="Menu" src="images/menu.svg" width="30px" height="28px" style="margin-top: 0px;margin-left: -30px;">
 	    </span>
 	
 	  <span style="padding-left: 45px; margin-top: 33px; font-size: 30px; color:black;">
-	     <b>
-	      <font  face="verdana">Google</font>
-	     </b>
+	    <img uib-dropdown-toggle alt="color" src="images/google.svg"   width="100px;" height="100px;"  style=" cursor: pointer;margin-top: -55px;padding-top:55px; margin-left: -25px">
 	    <font=size:20px>Keep</font>
 	  </span>
     </span>	
@@ -73,31 +71,31 @@
  </div>
 </nav>
 
-
 <div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color:E8E8E8">
     <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
       
-       <li>
+       <li id="shadow"style=" margin-left: -45px;margin-top: -5px;padding-top: -20px;">
          <div data-ng-click="hc.trash()">
-		    <img alt="notifn" src="images/trash.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
-              <div style="margin-top: -24px;color: #737373;margin-left: 20px;  cursor: pointer;" >
-              trash
-              </div>		    
+		    <img alt="notifn" src="images/trash.png" width="25px;" height="28px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 20px;margin-left: 25px;padding-top:-50%">
+              <div style="margin-top: -28px;color: #737373;margin-left: 100px;  cursor: pointer;padding-top: -15px" >
+              Trash
+              </div>
 	    </div>
 	  </li>
 	  
-	  <li>
+	  <li id="shadow"style="margin-left: -45px">
        <div data-ng-click="hc.archive()">
-		   <img alt="notifn" src="images/archive.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;">
-             <div style="margin-top: -24px;color: #737373;margin-left: 20px; cursor: pointer;">
-             archive
-             </div>		    
+		   <img alt="notifn" src="images/archive.svg" width="30px;" height="30px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
+             <div style="margin-top: -28px;color: #737373;margin-left: 100px; cursor: pointer;">
+              Archive
+             </div>
 	   </div>
 	  </li>
- 
+    <li>
+	  <hr style=" border-top: 1px solid  #737373; ">
+	  </li>
     </ul>
 </div>
-  
 <div id="homeBody" class="row"  data-ng-style="move">
  <div class="col-sm-3"></div>
 	<div class="col-sm-7">
@@ -125,7 +123,7 @@
 			  </i> 
 			</div>	
 		  <div class="col-sm-2">
-			<span uib-dropdown dropdown-append-to-body><img uib-dropdown-toggle alt="color" src="images/color.png" width="20px;" height="20px;" data-toggle="tooltip" title="Change color" style="margin-top:5px;cursor: pointer;">
+			<span uib-dropdown dropdown-append-to-body><img uib-dropdown-toggle alt="color" src="images/painticon.svg" width="25px;" height="25px;" data-toggle="tooltip" title="Change color" style="margin-top:5px;cursor: pointer;">
 				<div  uib-dropdown-menu style="margin-top:-12px; margin-left: 25px" data-ng-model="toDo.color">
 				  <div style="margin-left: 9px; padding-right: 10px;">
 					 <span>
@@ -169,7 +167,7 @@
 	 </span>
 									
 	 <div id="#toDoTitle"><font size="4px" face="verdana">{{todo.title}}</font></div>
-	 <div style="float: right; cursor: pointer;"><img data-ng-show="icons" alt="icon" src="images/pin.png" width="20px" height="20px" data-toggle="tooltip" title="Pin note" data-ng-click="hc.pinUp(todo)" style="margin-top:-30px;"></div>
+	 <div style="float: right; cursor: pointer;"><img data-ng-show="icons" alt="icon" src="images/pin.svg" width="25px" height="30px" data-toggle="tooltip" title="Pin note" data-ng-click="hc.pinUp(todo)" style="margin-top:-30px;"></div>
 	 <div id="toDoNote"><font size="6px" >{{todo.note}}</font></div>
 	 </div>
 	</div>
@@ -180,7 +178,7 @@
 		  <span data-ng-show="icons">
 			 <span uib-dropdown dropdown-append-to-body>
 				<span data-toggle="tooltip" title="Remind me">
-					<img uib-dropdown-toggle alt="color" src="images/remaind.png" width="25px;" height="20px;"  style=" cursor: pointer;">
+					<img uib-dropdown-toggle alt="color" src="images/remindericon.svg" width="25px;" height="20px;"  style=" cursor: pointer;">
 				</span>
 				<div uib-dropdown-menu class="dropdown-menu" style="cursor: pointer; margin-left: 10px; width: 100px; top: 87%; padding: 5px; line-height: 2; margin-top: 10px;">
 				  <div>Reminder:</div>
@@ -220,7 +218,7 @@
                 </div>
 		 </span>
 									
-		<span uib-dropdown dropdown-append-to-body><img uib-dropdown-toggle alt="color" src="images/color.png" width="20px;" height="20px;" data-toggle="tooltip" title="Change color" style="margin-left: 20px; cursor: pointer;">
+		<span uib-dropdown dropdown-append-to-body><img uib-dropdown-toggle alt="color" src="images/painticon.svg" width="25px;" height="25px;" data-toggle="tooltip" title="Change color" style="margin-left: 20px; cursor: pointer;">
 		  <div  uib-dropdown-menu style="margin-top:-105px; margin-left: 23px">
 	         <div style="margin-left: 10px; padding-right: 10px;">
 				<span>
@@ -243,7 +241,7 @@
 		 </span>
 					
 		 <span>
-			<img alt="icon" src="images/blackarchive.png" width="25px" height="25px" style="margin-left: 13px; cursor: pointer; "data-ng-click="hc.archiveNote(todo)">
+			<img alt="icon" src="images/archive.svg" width="30px" height="30px" style="margin-left: 13px; cursor: pointer; "data-ng-click="hc.archiveNote(todo)">
 		 </span>
 										
 		<span uib-dropdown dropdown-append-to-body >
