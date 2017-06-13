@@ -523,6 +523,46 @@ public class ToDoController {
 	}
 	
 	
-	
+	@RequestMapping(value = "/restore" , method=RequestMethod.POST)
+	public ResponseEntity<String> restoreNote(@RequestBody TrashToDo trashToDo, HttpServletRequest request,
+			HttpServletResponse response) throws JsonProcessingException {
+
+		ToDo toDo=new ToDo(trashToDo.getId(), trashToDo.getTitle(), trashToDo.getNote(), trashToDo.getRemainder(), trashToDo.getColor(), false, false, trashToDo.getUpDated(), trashToDo.getUser());
+
+		HttpSession session = request.getSession(false);
+		User user = (User) session.getAttribute("user");
+		if (session != null && user != null) {
+			toDo.setUser(user);
+			System.out.println(toDo.getId());
+			boolean result = toDoService.addNote(toDo);
+			System.out.println(toDo.getId());
+			if (result) {
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("status", "sucess");
+				root.putPOJO("todo", toDo);
+				String data = mapper.writeValueAsString(root);
+				System.out.println(data);
+				return new ResponseEntity<String>(data, HttpStatus.OK);
+			} else {
+
+				ObjectMapper mapper = new ObjectMapper();
+				ObjectNode root = mapper.createObjectNode();
+				root.put("status", "failure");
+				String data = mapper.writeValueAsString(root);
+				System.out.println(data);
+				return new ResponseEntity<String>(data, HttpStatus.NO_CONTENT);
+			}
+		}
+
+		else {
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("status", "failure");
+			String data = mapper.writeValueAsString(root);
+			System.out.println(data);
+			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
+		}
+	}
 	
 }

@@ -30,6 +30,26 @@ public class ToDo implements Serializable {
 	private boolean pinup;
 	private boolean archive;
 	
+	
+	
+	public ToDo(int id, String title, String note, Date remainder, String color, boolean pinup, boolean archive,
+			Date upDated, User user) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.note = note;
+		this.remainder = remainder;
+		this.color = color;
+		this.pinup = pinup;
+		this.archive = archive;
+		this.upDated = upDated;
+		this.user = user;
+	}
+	
+	public ToDo() {
+		
+	}
+
 	public boolean isArchive() {
 		return archive;
 	}

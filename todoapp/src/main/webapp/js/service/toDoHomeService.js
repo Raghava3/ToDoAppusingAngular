@@ -116,18 +116,12 @@ this.deleteNotePermanently= function(id) {
 	});
 }
 
-this.restore=function(toDo)
+this.restore=function(trashToDo)
 {
-	toDo.id=toDo.id;
-	toDo.title=toDo.title;
-	toDo.note=toDo.note;
-	toDo.reminder=toDo.reminder;
-	toDo.color=toDo.color;
-	toDo.pinup=false;
-	toDo.archive=false;
-	 return $http({
-   		 url:"http://localhost:8030/todoapp/updateNote",
-   		method:"POST"
+		 return $http({
+   		 url:"http://localhost:8030/todoapp/restore",
+   		method:"POST",
+   		data:trashToDo
    	 });
 }
 

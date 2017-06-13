@@ -102,7 +102,7 @@ myToDo.controller("TrashController", function($scope, $state,homeService)
 	this.deleteNotePermanently=function(trashtodo,index)
 	{
 		var deltoDoObj = homeService.deleteNotePermanently(trashtodo.id,index);
-		console.log(index);	
+		console.log("coming inside deletenotepermanently");	
 		deltoDoObj.then(function(data) 
 			{
 			console.log(data.status);
@@ -120,18 +120,19 @@ myToDo.controller("TrashController", function($scope, $state,homeService)
 		);
 	}
 	
-	this.restore=function(trashtodo)
+	this.restore=function(trashToDo,index)
 	{
-	var toDo={};	
-		toDo.id=trashtodo.id;
-		toDo.title=trashtodo.title;
-		toDo.note=trashtodo.note;
-		toDo.reminder=trashtodo.reminder;
-		toDo.color=trashtodo.color;
-		toDo.pinup=false;
-		toDo.archive=false;
 		
-		var restoreObj=homeService.restore(toDo)
+		var restoreObj=homeService.restore(trashToDo);
+		restoreObj.then(function(data)
+		{
+			console.log(data.status);
+			if(data.status==200)
+				{
+				$scope.trashToDoList.splice(index,1);
+				var deltoDoObj = homeService.deleteNotePermanently(trashToDo.id,index);
+				}
+		});
 		
 	}
 
