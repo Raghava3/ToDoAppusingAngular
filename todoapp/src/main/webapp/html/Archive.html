@@ -76,14 +76,39 @@
      <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
        <li style="margin-left: -45px" id="shadow">
         <div data-ng-click="archiveToHome()">
-		    <img alt="notifn" src="images/noteicon.png" width="25px;" height="28px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 20px;margin-left: 25px;">
-              <div style="margin-top: -28px;color: #737373;margin-left: 100px;cursor: pointer;">
+		   <img alt="notifn" src="images/noteicon.png" width="25px;" height="28px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 20px;margin-left: 25px;">
+            <div style="margin-top: -28px;color: #737373;margin-left: 100px;cursor: pointer;">
               Notes
-              </div>		    
+             </div>		    
 	   </div>
 	  </li>
 	 
-	  <li style="margin-left: -45px" id="shadow">
+	  <li id="shadow"style="margin-left: -45px">
+		   <img alt="notifn" src="images/archive.svg" width="30px;" height="30px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
+             <div style="margin-top: -28px;color: #737373;margin-left: 100px; cursor: pointer;">
+              Archive
+             </div>
+	  </li>
+	 
+	 
+	  <li>
+	   <hr style=" border-top: 1px solid #737373;">
+	  </li>
+	 
+	 <li id="shadow" style="margin-left: -45px;margin-top:-18px">
+	 <div data-ng-click="">
+		   <img alt="notifn" src="images/plus.png" width="30px;" height="30px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
+             <div style="margin-top: -28px;color: #737373;margin-left: 100px; cursor: pointer;">
+              create new Lables
+             </div>
+	   </div>
+	</li>
+	
+	<li>
+	   <hr style=" border-top: 1px solid  #737373; ">
+    </li>
+	 
+	  <li style="margin-left: -45px;margin-top: -18px" id="shadow">
        <div data-ng-click="archiveToTrash()">
 		   <img alt="notifn" src="images/trash.png" width="25px;" height="25px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
               <div style="margin-top: -28px;color: #737373;margin-left: 100px;cursor: pointer;" >
@@ -91,9 +116,7 @@
               </div>		    
 	   </div>
 	  </li>
-	  <li>
-	  <hr style=" border-top: 1px solid #737373;">
-	  </li>
+	  
     </ul>
   </div>
   
@@ -106,7 +129,7 @@
 					<div class="cont" data-ng-class="{list: isList, grid: !isList}">
 						<div class="cardRow">
 							<div class="card" id="cardId" data-ng-if="trashtodo.archive" data-ng-repeat="trashtodo in toDoList" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{trashtodo.color}};">
-								<div  data-ng-click="hc.popUp(todo, $index)" >
+								<div  data-ng-click="hc.popUp(archivetodo, $index)" >
 									<div id="toDoTitle">
 										 <span data-toggle="tooltip" title="rightmark">
 										   <img uib-dropdown-toggle alt="color" src="images/check.png" data-ng-show="icons"  width="25px;" height="20px;"  style=" cursor: pointer;margin-top: -20px; margin-left: -25px">
@@ -122,8 +145,8 @@
 											</span>
 											<div bgcolor="white">
 												<ul uib-dropdown-menu class="dropdown-menu" style="cursor: pointer; margin-left: 2%; margin-top: 10px;">
-													<li data-ng-click="hc.makeCopy(todo)"><a>Delete forever</a></li>
-													<li data-ng-click="hc.deleteNote(todo, $index)"><a>Restore</a></li>
+													<li data-ng-click="hc.deleteNote(trashtodo,$index)"><a>Delete</a></li>
+													<li data-ng-click="hc.unarchive(trashtodo,$index)"><a>unarchive</a></li> 
 												</ul>
 											</div>
 										</span>

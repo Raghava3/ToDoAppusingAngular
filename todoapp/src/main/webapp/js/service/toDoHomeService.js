@@ -125,6 +125,14 @@ this.restore=function(trashToDo)
    	 });
 }
 
+this.addLabel=function(label)
+{
+		 return $http({
+   		 url:"http://localhost:8030/todoapp/labling",
+   		method:"POST",
+   		data:label
+   	 });
+}
 
 
 

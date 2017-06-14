@@ -79,7 +79,7 @@
 {
 	width: 80%;
 	min-height: 45px;
-	padding-top: 12px;
+	padding-top: 10px;
 	padding-left: 20px;
 	background-color: white;
 	font-style: italic;
@@ -95,7 +95,7 @@
 {
 	width: 80%;
 	min-height: 45px;
-	padding-top: 12px;
+	padding-top: 10px;
 	padding-left: 20px;
 	background-color: white;
 	font-style: italic;
@@ -316,4 +316,8 @@ hr {
 #content {
     position: relative;            
     margin-left: 0px;
+}
+.modal-content
+{
+	min-width: 75px;
 }

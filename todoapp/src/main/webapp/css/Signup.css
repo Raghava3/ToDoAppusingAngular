@@ -56,3 +56,17 @@
 ::-webkit-input-placeholder { /* Chrome */
   color: #043e62;
 }
+.donebutton {
+   background-color: #41474b;
+    border: none;
+    color: white;
+    padding: 7px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 5px 2px;
+    cursor: pointer;
+    margin-left: 36%;
+    margin-bottom: 46px;
+}

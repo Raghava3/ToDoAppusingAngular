@@ -2,6 +2,7 @@ package com.bridgelabz.todoapp.service.serviceinterface;
 
 import java.util.List;
 
+import com.bridgelabz.todoapp.model.Label;
 import com.bridgelabz.todoapp.model.ToDo;
 import com.bridgelabz.todoapp.model.TrashToDo;
 
@@ -66,4 +67,6 @@ public interface ToDoService {
 	public List<ToDo> getTrashNotes(int userId);
 
 	public int deleteNotePermanently(int id);
+	
+	public boolean addLabel(Label label);
 }

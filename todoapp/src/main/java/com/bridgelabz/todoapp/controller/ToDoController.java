@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bridgelabz.todoapp.model.Label;
 import com.bridgelabz.todoapp.model.ToDo;
 import com.bridgelabz.todoapp.model.TrashToDo;
 import com.bridgelabz.todoapp.model.User;
@@ -563,6 +564,49 @@ public class ToDoController {
 			System.out.println(data);
 			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
 		}
+	}
+	
+	
+	@RequestMapping(value="/labling", method=RequestMethod.POST)
+	public ResponseEntity<String> addLabel(@RequestBody Label label, HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException
+	{
+		System.out.println("comin inside add label controller");
+		HttpSession session=request.getSession();
+		User user=(User) session.getAttribute("user");
+		if(user!=null)
+		{
+		label.setUser(user);
+		boolean result = toDoService.addLabel(label);
+		if (result) {
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("status", "sucess");
+			root.putPOJO("label", label);
+			String data = mapper.writeValueAsString(root);
+			System.out.println(data);
+			return new ResponseEntity<String>(data, HttpStatus.OK);
+		} 
+		else {
+
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("status", "failure");
+			String data = mapper.writeValueAsString(root);
+			System.out.println(data);
+			return new ResponseEntity<String>(data, HttpStatus.NO_CONTENT);
+		}
+			
+		}
+		else
+		{
+			ObjectMapper mapper = new ObjectMapper();
+			ObjectNode root = mapper.createObjectNode();
+			root.put("status", "failure");
+			String data = mapper.writeValueAsString(root);
+			System.out.println(data);
+			return new ResponseEntity<String>(data, HttpStatus.UNAUTHORIZED);
+		}
+				
 	}
 	
 }

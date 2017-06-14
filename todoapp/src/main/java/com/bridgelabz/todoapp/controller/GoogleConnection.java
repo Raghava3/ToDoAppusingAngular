@@ -46,41 +46,50 @@ public class GoogleConnection {
 	
 	public String getAccessToken(String authcode)
 	{
-	String accessTokenUrl="https://www.googleapis.com/oauth2/v4/token";
-	ResteasyClient restCall=new ResteasyClientBuilder().build();
-	ResteasyWebTarget target=restCall.target(accessTokenUrl);
-	
-	Form f=new Form();
-	f.param("client_id", GOOGLE_APP_ID);
-	f.param("client_secret",GOOGLE_APP_SECRET);
-	f.param("redirect_uri", REDIRECT_URI);
-	f.param("code", authcode);
-	f.param("grant_type","authorization code");
-	
-	Response response=target.request().accept(MediaType.APPLICATION_JSON).post(Entity.form(f));
-	
-	GoogleAccessToken accessToken= response.readEntity(GoogleAccessToken.class);
-	restCall.close();
-	
-	System.out.println("accessToken.getAccess_token()"+accessToken.getAccess_token());
-	
-	return accessToken.getAccess_token();	
+   String accessTokenURL = "https://www.googleapis.com/oauth2/v4/token";
+		
+		ResteasyClient restCall = new ResteasyClientBuilder().build();
+		
+		ResteasyWebTarget target = restCall.target(accessTokenURL);
+		
+		Form f = new Form();
+		f.param("client_id", GOOGLE_APP_ID);
+		f.param("client_secret", GOOGLE_APP_SECRET);
+		f.param("redirect_uri",REDIRECT_URI );
+		f.param("code", authcode);
+		f.param("grant_type","authorization_code");
+		
+		Response response = target.request().accept(MediaType.APPLICATION_JSON).post(Entity.form(f));
+		
+		GoogleAccessToken accessToken = response.readEntity(GoogleAccessToken.class);
+		
+		System.out.println("accesstoken"+accessToken);
+		
+		restCall.close();
+		
+		return accessToken.getAccess_token();
+
 	
 	}
 	
 	public GoogleUserProfile getUserProfile(String accessToken)
 	{ 
-        String gmail_user_url= "https://www.googleapis.com/plus/v1/people/me";
+String gmail_user_url= "https://www.googleapis.com/plus/v1/people/me";
+		
+	
 		
 		ResteasyClient restCall = new ResteasyClientBuilder().build();
 		ResteasyWebTarget target = restCall.target(gmail_user_url);
 		
 		String headerAuth="Bearer "+accessToken;
+		System.out.println("header"+headerAuth);
 		Response response = target.request().header("Authorization", headerAuth).accept(MediaType.APPLICATION_JSON).get();
-
-		GoogleUserProfile profile=response.readEntity(GoogleUserProfile.class);
+		
+		GoogleUserProfile profile = (GoogleUserProfile) response.readEntity(GoogleUserProfile.class);
 		restCall.close();
-		System.out.println("profile"+profile);
+		
+		System.out.println(profile.getEmails().get(0).getValue());
 		return profile;
 	}
 }
+

@@ -73,7 +73,44 @@
 
 <div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color:E8E8E8">
     <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
+    
+    <li style="margin-left: -45px" id="shadow">
+		<img alt="notifn" src="images/noteicon.png" width="25px;" height="28px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 20px;margin-left: 25px;">
+             <div style="margin-top: -28px;color: #737373;margin-left: 100px;cursor: pointer;">
+              Notes
+            </div>		    
+	 </li>
       
+	  <li id="shadow"style="margin-left: -45px">
+       <div data-ng-click="hc.archive()">
+		   <img alt="notifn" src="images/archive.svg" width="30px;" height="30px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
+             <div style="margin-top: -28px;color: #737373;margin-left: 100px; cursor: pointer;">
+              Archive
+             </div>
+	   </div>
+	  </li>
+	  
+	  <li>
+	   <hr style=" border-top: 1px solid  #737373; ">
+	  </li>
+	 sss
+	  
+	
+	<li id="shadow" style="margin-left: -45px;margin-top:-18px">
+	 <div data-ng-click="hc.createNewLables()">
+		   <img alt="notifn" src="images/plus.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
+             <div style="margin-top: -28px;color: #737373;margin-left: 100px; cursor: pointer;">
+              create new Lables
+             </div>
+	   </div>
+	</li>
+	
+	<li>
+	   <hr style=" border-top: 1px solid  #737373; ">
+    </li>
+	
+	
+	  
        <li id="shadow"style=" margin-left: -45px;margin-top: -5px;padding-top: -20px;">
          <div data-ng-click="hc.trash()">
 		    <img alt="notifn" src="images/trash.png" width="25px;" height="28px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 20px;margin-left: 25px;padding-top:-50%">
@@ -83,17 +120,6 @@
 	    </div>
 	  </li>
 	  
-	  <li id="shadow"style="margin-left: -45px">
-       <div data-ng-click="hc.archive()">
-		   <img alt="notifn" src="images/archive.svg" width="30px;" height="30px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
-             <div style="margin-top: -28px;color: #737373;margin-left: 100px; cursor: pointer;">
-              Archive
-             </div>
-	   </div>
-	  </li>
-    <li>
-	  <hr style=" border-top: 1px solid  #737373; ">
-	  </li>
     </ul>
 </div>
 <div id="homeBody" class="row"  data-ng-style="move">

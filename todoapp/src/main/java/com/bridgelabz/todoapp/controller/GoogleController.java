@@ -12,11 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bridgelabz.todoapp.model.GoogleUserProfile;
+import com.bridgelabz.todoapp.model.User;
+import com.bridgelabz.todoapp.service.serviceinterface.UserSerInter;
 
 @RestController
 public class GoogleController {
 	@Autowired
 	GoogleConnection googleConnection;
+	@Autowired
+	private UserSerInter userSerInter;
+	
 	
 	@RequestMapping(value="/loginWithGoogle")
 public void googleConnection(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -42,15 +47,12 @@ public void googleConnection(HttpServletRequest request, HttpServletResponse res
 	{
 		HttpSession session=request.getSession();
 		System.out.println("coming after redirect");
-		//getting the attribute what we setted 
+		
 		String sessionState=(String) session.getAttribute("STATE");
-        //getting the parameter setted by the google 
-		//and we check ,if it is same. Then only we can allow further operation   
 		String googleState=request.getParameter("state");
 		
 		System.out.println("sessionstate"+sessionState);
 		System.out.println("googlestae"+googleState);
-		//if there is problem in session state then we will redirect again to google 
 		if(sessionState==null|| !sessionState.equals(googleState))
 		{
 			System.out.println("coming inside session state");
@@ -67,18 +69,21 @@ public void googleConnection(HttpServletRequest request, HttpServletResponse res
 			return;
 		}
 		
-		//getting the authentication code
 		String auth =request.getParameter("code");
-		
-		System.out.println("authcode"+auth);
-		
 		String accessToken= googleConnection.getAccessToken(auth);
+		GoogleUserProfile profile= googleConnection.getUserProfile(accessToken);
 		
-		System.out.println("accesstoken"+accessToken);
+		User user = userSerInter.getUserByEmail(profile.getEmails().get(0).getValue());
 		
-		GoogleUserProfile googleUserProfile=googleConnection.getUserProfile(accessToken);
-		System.out.println(googleUserProfile.getId());
+		if(user==null){
+			user = new User();
+			user.setFullName(profile.getDisplayName());
+			user.setEmail(profile.getEmails().get(0).getValue());
+			user.setPassword("");
+			userSerInter.registration(user);
+		}
+		session.setAttribute("user", user);
+		response.sendRedirect("http://localhost:8030/todoapp/#!/Home");
 		
 	}
-
 }

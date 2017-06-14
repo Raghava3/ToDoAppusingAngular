@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bridgelabz.todoapp.dao.daointerface.ToDoDao;
+import com.bridgelabz.todoapp.model.Label;
 import com.bridgelabz.todoapp.model.ToDo;
 import com.bridgelabz.todoapp.model.TrashToDo;
 
@@ -257,6 +258,31 @@ public class ToDoDaoImpl implements ToDoDao{
 			}
 		}
 	}
+
+	@Override
+	public boolean addLabel(Label label) {
+		try{
+			session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			session.save(label);
+			transaction.commit();
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		finally
+		{
+			if( session != null )
+			{
+				session.close();
+			}	// TODO Auto-generated method stub
+			
+		}
+	}
+
+	
 
 }
 

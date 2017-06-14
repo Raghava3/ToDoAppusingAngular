@@ -26,6 +26,15 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 		console.log(error);
 	});
 		
+	
+
+		
+	
+	
+	
+	
+	
+	
 	$scope.isList = true;
 	
 	this.addNote = function() {
@@ -178,6 +187,19 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	}
 
 	
+	this.unarchive=function(toDo,index)
+	{
+    toDo.archive=false;
+	var archToDoObj = homeService.updateNote(toDo);
+	archToDoObj.then(function(data)
+	{
+		if(data.status==200)
+		{
+			$scope.toDo.splice(index,1,data);
+		}
+	});
+    
+	}
 	
 	
 	this.move = function() {
@@ -378,5 +400,48 @@ $scope.archiveToTrash=function()
 	$state.go("Trash");
 }
 
+
+this.createNewLables = function() {
 	
+	var modal = $uibModal.open({
+	     templateUrl: "html/createLables.html",
+	    	 
+	    	 controller:function( $uibModalInstance ){
+		    	
+		    	 var $ctrl = this;
+		    	this.ok = function () {
+		    		console.log("update ok");
+					$uibModalInstance.close({id:$ctrl.id, title:$ctrl.title, note:$ctrl.note, remainder:$ctrl.remainder, color:$ctrl.color});
+					
+				};
+				
+				this.cancel = function () {
+					console.log("update cancle");
+				    $uibModalInstance.dismiss('cancel');
+				};
+		     },
+		     
+		     controllerAs :"$ctrl"
+		});    	 
+	    	 
+	    	 
+   
+    
+}
+
+this.addLabel=function()
+{
+	var addToDoObj = homeService.addLabel($scope.label);
+    console.log("coming inside the log");
+    $createNewLables.ok();
+	addToDoObj.then( function(data)
+	{
+		
+	});
+	
+}
+
+
+
+
 });

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bridgelabz.todoapp.dao.daointerface.ToDoDao;
+import com.bridgelabz.todoapp.model.Label;
 import com.bridgelabz.todoapp.model.ToDo;
 import com.bridgelabz.todoapp.model.TrashToDo;
 import com.bridgelabz.todoapp.service.serviceinterface.ToDoService;
@@ -82,6 +83,13 @@ public class ToDoServiceImpl implements ToDoService {
 		
 		return toDoDao.deleteNotePermanently(id);
 	}
+
+	@Override
+	public boolean addLabel(Label label) {// TODO Auto-generated method stub
+		return toDoDao.addLabel(label);
+	}
+
+
 	
 
 }

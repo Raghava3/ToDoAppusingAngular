@@ -2,6 +2,7 @@ package com.bridgelabz.todoapp.dao.daointerface;
 
 import java.util.List;
 
+import com.bridgelabz.todoapp.model.Label;
 import com.bridgelabz.todoapp.model.ToDo;
 import com.bridgelabz.todoapp.model.TrashToDo;
 
@@ -59,4 +60,5 @@ public interface ToDoDao {
 	public List<ToDo> getTrashNotes(int UserId);
 
 	public int deleteNotePermanently(int id);
+	public boolean addLabel(Label label);
 }
