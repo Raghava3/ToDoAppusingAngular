@@ -151,7 +151,8 @@
 	word-wrap: break-word;
 	padding: 10px 20px 15px 20px;
 	font-family: fantasy;
-	font-size: 17px;
+	font-size: 35px;
+	min-height: 11%;
 }
 
 #icons
@@ -167,10 +168,6 @@
 	padding-left: 20px;
 	min-height: 26px;
 }
-
-
-
-
 
 
 #modal-body
@@ -216,11 +213,12 @@
 	padding: 6px;
 	box-shadow: 1px 1px 1px 1px;
 	float:left;
+	min-height: 20%;
 }
 
 .modal-content
 {
-	margin-top: 50%;
+	margin-top: 80%;
 }
 
 
@@ -244,10 +242,7 @@
   transition: width 0.5s ease-in-out;
 }
 
-/* .dropdown-menu
-{
-	float: right;
-} */
+
 
 
 .uib-day button
@@ -262,11 +257,18 @@
 	outline: none;
 }
 
-.btn
+.btn-primary
 {
-	margin-left: 10px;
+	background-color:silver;
+	margin-left: -10px;
+	border: none;
 }
 
+.btn-warning
+{
+	background-color: silver;
+	border:none;
+}
 
 #userChar
 {

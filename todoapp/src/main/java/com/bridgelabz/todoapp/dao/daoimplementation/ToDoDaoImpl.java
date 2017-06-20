@@ -7,23 +7,27 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bridgelabz.todoapp.dao.daointerface.ToDoDao;
 import com.bridgelabz.todoapp.model.Label;
 import com.bridgelabz.todoapp.model.ToDo;
 import com.bridgelabz.todoapp.model.TrashToDo;
 
+@Repository
 public class ToDoDaoImpl implements ToDoDao{
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	private Session session = null;
-	
+/*	private Session session = null;
+	*/
 	@Override
 	public List<ToDo> getNotes(int UserId) {
+		Session session=null;
 		try {
-			session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
 			
 			String hql = "from ToDo where user_id=:userId";
 			Query query = session.createQuery(hql);
@@ -32,7 +36,8 @@ public class ToDoDaoImpl implements ToDoDao{
 			
 			return notes;
 		}
-		finally {
+		finally 
+		{
 			if(session != null)
 			session.close();
 		}
@@ -42,18 +47,19 @@ public class ToDoDaoImpl implements ToDoDao{
 	@Override
 	public boolean addNote(ToDo toDo) 
 	{
+		Session session=null;
 		try {
 			session = sessionFactory.openSession();
-			Transaction transaction = session.beginTransaction();
+			Transaction transaction=session.beginTransaction();
+			
 			if((toDo.getTitle()==null&&toDo.getNote()==null)||(toDo.getTitle()==""&&toDo.getNote()==""))
 			{
 			System.out.println("null");
 				toDo.setTitle("Empty");
-				toDo.setNote("Empty");
+				toDo.setNote("Empty");	
 			}
-			
 			session.save(toDo);
-			transaction.commit();
+		    transaction.commit();
 			return true;
 		}
 		catch (Exception e) {
@@ -71,6 +77,7 @@ public class ToDoDaoImpl implements ToDoDao{
 	@Override
 	public int deleteNote(int id) 
 	{
+		Session session=null;
 		try {
 			session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
@@ -91,6 +98,8 @@ public class ToDoDaoImpl implements ToDoDao{
 
 	@Override
 	public boolean updateNote(ToDo toDo) {
+           Session session=null;
+		
 		try {
 			session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
@@ -113,6 +122,7 @@ public class ToDoDaoImpl implements ToDoDao{
 	@Override
 	public void setColor(ToDo toDo) {
 
+		   Session session=null;
 		try{
 			session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
@@ -132,7 +142,7 @@ public class ToDoDaoImpl implements ToDoDao{
 	
 	@Override
 	public boolean copyToDo(ToDo copy) {
-		
+		   Session session=null;
 		try{
 			session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
@@ -156,7 +166,7 @@ public class ToDoDaoImpl implements ToDoDao{
 
 	@Override
 	public void setReminder(ToDo toDo) {
-		
+		   Session session=null;
 		try{
 			session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
@@ -177,7 +187,7 @@ public class ToDoDaoImpl implements ToDoDao{
 
 	@Override
 	public void cancelRemainder(ToDo toDo) {
-		
+		   Session session=null;
 		try{
 			session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
@@ -197,7 +207,7 @@ public class ToDoDaoImpl implements ToDoDao{
 
 	@Override
 	public boolean moveToTrash(TrashToDo trashToDo) {
-
+		   Session session=null;
 		System.out.println("coming inside the daoimpl");
 		
 		try{
@@ -220,6 +230,7 @@ public class ToDoDaoImpl implements ToDoDao{
 
 	@Override
 	public List<ToDo> getTrashNotes(int UserId) {
+		   Session session=null;
 		try {
 			session = sessionFactory.openSession();
 			
@@ -238,8 +249,9 @@ public class ToDoDaoImpl implements ToDoDao{
 
 	@Override
 	public int deleteNotePermanently(int id) {
+		   Session session=null;
 		try {
-			
+			  
 			System.out.println("coming inside dao");
 			
 			session = sessionFactory.openSession();
@@ -261,6 +273,7 @@ public class ToDoDaoImpl implements ToDoDao{
 
 	@Override
 	public boolean addLabel(Label label) {
+		   Session session=null;
 		try{
 			session = sessionFactory.openSession();
 			Transaction transaction = session.beginTransaction();
@@ -279,6 +292,25 @@ public class ToDoDaoImpl implements ToDoDao{
 				session.close();
 			}	// TODO Auto-generated method stub
 			
+		}
+	}
+
+	@Override
+	public List<Label> getLabel(int userId) {
+		   Session session=null;
+		try {
+			session = sessionFactory.openSession();
+			
+			String hql = "from Label where user_id=:userId";
+			Query query = session.createQuery(hql);
+			query.setParameter("userId", userId);
+			List<Label> label = query.list();
+			
+			return label;
+		}
+		finally {
+			if(session != null)
+			session.close();
 		}
 	}
 

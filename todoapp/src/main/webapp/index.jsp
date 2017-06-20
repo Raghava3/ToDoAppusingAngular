@@ -54,7 +54,6 @@
 <script src="js/controller/LogoutController.js" type="text/javascript"></script>
 <script src="js/controller/TrashController.js" type="text/javascript"></script>
 
-
 <script src="js/service/toDoHomeService.js" type="text/javascript"></script>
 <script src="js/validation/toDoHome.js" type="text/javascript"></script>
 

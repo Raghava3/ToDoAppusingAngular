@@ -23,7 +23,7 @@
     <div id="navbar" class="navbar-collapse collapse">
 	    <ul class="nav navbar-nav navbar-right" id="navBar" style="width: 78% ">
 				<li id="srchwdt">
-					<input type="text" placeholder="Search" id="search"   data-toggle="tooltip" title="Search" data-ng-click=hc.searchDiv()> 
+					<input type="text" placeholder="Search" id="search"   data-toggle="tooltip" title="Search" > 
 				</li>
 					          
 				<li id="refresh">
@@ -94,6 +94,16 @@
 	  <li>
 	   <hr style=" border-top: 1px solid #737373;">
 	  </li>
+	 
+	 	<div data-ng-repeat="todol in toDoLabel"> 
+	 <li  id="shadow" style="height: 40px;padding-top: 10px;margin-top: -10px">
+	   <div style="margin-left: 80px;">
+	   <font color=#737373 >
+	     {{todol.labels}}
+	   </font>
+	  </div>
+	</li>
+</div>	 
 	 
 	 <li id="shadow" style="margin-left: -45px;margin-top:-18px">
 	 <div data-ng-click="">

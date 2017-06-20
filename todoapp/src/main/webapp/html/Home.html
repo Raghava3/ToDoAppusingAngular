@@ -1,5 +1,5 @@
 <div  data-ng-controller="HomeController as hc">
- <nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #fb0">
+ <nav id="navBar" class="navbar navbar-default navbar-fixed-top" role="navigation"  style="background-color: #fb0">
  
    <div class="navbar-header" style="margin-top:15px">
      <a class="navbar-brand" href="#menu-toggle" id="menu-toggle"></a>
@@ -11,7 +11,7 @@
 	
 	  <span style="padding-left: 45px; margin-top: 33px; font-size: 30px; color:black;">
 	    <img uib-dropdown-toggle alt="color" src="images/google.svg"   width="100px;" height="100px;"  style=" cursor: pointer;margin-top: -55px;padding-top:55px; margin-left: -25px">
-	    <font=size:20px>Keep</font>
+	    <font>Keep</font>
 	  </span>
     </span>	
 				
@@ -26,7 +26,8 @@
     <ul class="nav navbar-nav navbar-right" id="navBar" style="width: 78% ">
 	
 	 <li id="srchwdt">
-	   <input type="text" placeholder="Search" id="search"   data-toggle="tooltip" title="Search" data-ng-click=hc.searchDiv()> 
+	
+	   <input type="text" placeholder="Search"  id="search" data-ng-model="searchText"  data-toggle="tooltip" title="Search" data-ng-click="hc.search()"> 
 	 </li>
 	
 	 <li id="refresh">
@@ -45,11 +46,18 @@
 					
 	  <li>
 	     <span uib-dropdown >
-	        <div class="dropdown-toggle" uib-dropdown-toggle style="width: 40px; height:40px; border-radius: 50%; background-color: white; padding-left: 10px; font-size: 30px; margin-top:15px;   margin-left:200px; background-color: #2A4976; color:white; cursor: pointer;" data-toggle="tooltip" title="profile">{{user.fullName.charAt(0)| uppercase}}</div>
+	        <div class="dropdown-toggle" uib-dropdown-toggle style="width: 40px; height:40px; border-radius: 50%; background-color: white; padding-left: 10px; font-size: 30px; margin-top:15px;   margin-left:200px; background-color: #2A4976; color:white; background-image:url('{{user.image}}');cursor: pointer;" data-toggle="tooltip" title="profile" >{{user.fullName.charAt(0)| uppercase}}
+	      
+	        </div>
 	          	<div  uib-dropdown-menu style="margin-right: -329px;">
 	          		<div class="col-sm-3" style="width: 300px;height: 130px;padding-top: 10px;border-bottom: 2px solid;">
 	          			<div class="col-sm-1" id="userChar" data-toggle="tooltip" title="Profile" >
-	          						{{user.fullName.charAt(0)|uppercase}}
+	          						{{user.fullName.charAt(0)|uppercase}}  
+	          						<div input type="file" data-ng-click="hc.uploadImage()" style="width: 95px;margin-left: -33px;margin-top: 13px;padding-left: 10px" data-ng-model="user.image"> 
+	          						 <font size="2px" color="black">
+	          						  uploadimage
+	          						 </font>
+	          						</div>
 	          			</div>
 	          			
 	          			<div class="col-sm-1" style="margin-top: 18px;">
@@ -74,14 +82,14 @@
 <div data-ng-class="{'is-visible':visible}" class="menu" style="z-index: 1; background-color:E8E8E8">
     <ul style="padding-top: 20px; font-size: 20px; list-style-type:none; ">
     
-    <li style="margin-left: -45px" id="shadow">
+    <li style="margin-left: -45px;height:50px;margin-top: 0px" id="shadow" >
 		<img alt="notifn" src="images/noteicon.png" width="25px;" height="28px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 20px;margin-left: 25px;">
              <div style="margin-top: -28px;color: #737373;margin-left: 100px;cursor: pointer;">
               Notes
             </div>		    
 	 </li>
       
-	  <li id="shadow"style="margin-left: -45px">
+	  <li id="shadow"style="margin-left: -45px ; height: 50px;">
        <div data-ng-click="hc.archive()">
 		   <img alt="notifn" src="images/archive.svg" width="30px;" height="30px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
              <div style="margin-top: -28px;color: #737373;margin-left: 100px; cursor: pointer;">
@@ -93,10 +101,19 @@
 	  <li>
 	   <hr style=" border-top: 1px solid  #737373; ">
 	  </li>
-	 sss
-	  
 	
-	<li id="shadow" style="margin-left: -45px;margin-top:-18px">
+	<div data-ng-repeat="todol in toDoLabel"> 
+	 <li  id="shadow" style="height: 40px;padding-top: 10px;margin-top: -10px" data-ng-click="hc.adngToLabel()">
+	   <div style="margin-left: 80px;">
+	   <font color=#737373 >
+	     {{todol.labels}}
+	   </font>
+	  </div>
+	</li>
+</div>	  
+<li></li>
+	
+	<li id="shadow" style="margin-left: -45px;margin-top:-20px">
 	 <div data-ng-click="hc.createNewLables()">
 		   <img alt="notifn" src="images/plus.png" width="20px;" height="20px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 21px;margin-left: 25px">
              <div style="margin-top: -28px;color: #737373;margin-left: 100px; cursor: pointer;">
@@ -111,7 +128,7 @@
 	
 	
 	  
-       <li id="shadow"style=" margin-left: -45px;margin-top: -5px;padding-top: -20px;">
+       <li id="shadow"style=" margin-left: -45px;margin-top: -20px;">
          <div data-ng-click="hc.trash()">
 		    <img alt="notifn" src="images/trash.png" width="25px;" height="28px;" data-toggle="tooltip" title="trash" style=" cursor: pointer; margin-top: 20px;margin-left: 25px;padding-top:-50%">
               <div style="margin-top: -28px;color: #737373;margin-left: 100px;  cursor: pointer;padding-top: -15px" >
@@ -183,7 +200,7 @@
 <div class="cont" data-ng-class="{list: isList, grid: !isList}">
  <div class="cardRow">
  <div>
-  <div class="card" data-ng-if="!todo.pinup&&!todo.archive" id="cardId" data-ng-repeat="todo in toDoList" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
+  <div class="card" data-ng-if="!todo.pinup&&!todo.archive" id="cardId" data-ng-repeat="todo in toDoList| filter:searchText" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
   <div>
   <div  data-ng-click="hc.popUp(todo, $index)" >
 	<div id="toDoTitle">

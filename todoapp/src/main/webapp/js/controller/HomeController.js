@@ -27,6 +27,27 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	});
 		
 	
+	var getToDoHtOb = homeService.getLabel();
+	getToDoHtOb.then(function(data) {
+		
+		console.log("comming data "+data.status);
+		$scope.user = data.data.user;
+		
+		if( data.status == 200 ) {
+			console.log(data.data.todo);
+			$scope.toDoLabel = data.data.todo;
+		}
+		else{
+			
+			$scope.toDoLabel = null;
+		}
+		
+	}).catch( function(error) {
+		$scope.isList = true;
+		$state.go('Login');
+		console.log(error);
+	});
+	
 
 		
 	
@@ -344,7 +365,18 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	}
 	
 	
+	this.search=function()
+	{
+		console.log("coming inside the search");
+		$state.go("search");
+	}
 	
+	
+	$scope.goHome=function()
+	{
+		console.log("function inside goHome");
+		$state.go("Home");
+	}
 	
 	this.pinUp = function(toDo) {
 		toDo.pinup = true;
@@ -429,19 +461,24 @@ this.createNewLables = function() {
     
 }
 
-this.addLabel=function()
-{
-	var addToDoObj = homeService.addLabel($scope.label);
-    console.log("coming inside the log");
-    $createNewLables.ok();
-	addToDoObj.then( function(data)
+	this.addLabel=function()
 	{
+		var addToDoObj = homeService.addLabel($scope.label);
+	    console.log("coming inside the log");
+	    
+		addToDoObj.then( function(data)
+		{
+			
+		});
 		
-	});
+	}
+
+
 	
-}
-
-
-
+	this.adngToLabel=function()
+	{
+		console.log("coming inside the adngToLabel");
+	$state.go("Label");	
+	}
 
 });

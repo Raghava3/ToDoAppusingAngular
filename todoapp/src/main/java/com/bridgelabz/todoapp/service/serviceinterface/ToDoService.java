@@ -69,4 +69,6 @@ public interface ToDoService {
 	public int deleteNotePermanently(int id);
 	
 	public boolean addLabel(Label label);
+	
+	public List<Label> getLabel(int userId);
 }

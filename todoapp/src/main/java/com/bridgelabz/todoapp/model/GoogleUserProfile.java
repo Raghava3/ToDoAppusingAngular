@@ -12,8 +12,14 @@ public class GoogleUserProfile {
 	private Date birthday;
 	private String gender;
 	private List<GoogleEmails> emails;
+	private GoogleImage image;
 	
-	
+	public GoogleImage getImage() {
+		return image;
+	}
+	public void setImage(GoogleImage image) {
+		this.image = image;
+	}
 	public String getId() {
 		return id;
 	}

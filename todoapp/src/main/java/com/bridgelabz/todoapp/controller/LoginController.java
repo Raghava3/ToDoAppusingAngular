@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,32 +34,11 @@ public class LoginController {
 
 	@Autowired
 	UserSerInter userSerInter;
+	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public ResponseEntity<String> login(@RequestBody Map<String, String> loginMap, HttpServletRequest request,
 			HttpServletResponse response) throws JsonProcessingException 
 	{
-		User user = userSerInter.login(loginMap.get("email"), loginMap.get("password"));//taking user id and password
-		if (user != null)
-		{
-			System.out.println("inside login");
-			HttpSession session=request.getSession();//if login sucessfull then setting the session 
-			session.setAttribute("user",user); //setting session 
-			ObjectMapper mapper=new ObjectMapper();
-			ObjectNode root=mapper.createObjectNode();
-			root.put("status","sucess");
-			String data=mapper.writeValueAsString(root);
-			return new ResponseEntity<String>(data,HttpStatus.OK);
-		} 
-		else  
-		{
-			HttpSession session=request.getSession();//if login sucessfull then setting the session 
-			session.setAttribute("user",user); //setting session 
-			ObjectMapper mapper=new ObjectMapper();
-			ObjectNode root=mapper.createObjectNode();
-			  root.put("status","failure");
-			  String data=mapper.writeValueAsString(root);
-			
-			return new ResponseEntity<String>(data,HttpStatus.NOT_ACCEPTABLE);
-		}
+	 return userSerInter.login(loginMap.get("email"), loginMap.get("password"), response,request);//taking user id and password
 	}
 }

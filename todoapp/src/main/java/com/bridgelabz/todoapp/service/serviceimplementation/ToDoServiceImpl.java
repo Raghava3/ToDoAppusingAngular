@@ -3,6 +3,8 @@ package com.bridgelabz.todoapp.service.serviceimplementation;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bridgelabz.todoapp.dao.daointerface.ToDoDao;
 import com.bridgelabz.todoapp.model.Label;
@@ -10,6 +12,7 @@ import com.bridgelabz.todoapp.model.ToDo;
 import com.bridgelabz.todoapp.model.TrashToDo;
 import com.bridgelabz.todoapp.service.serviceinterface.ToDoService;
 
+@Service
 public class ToDoServiceImpl implements ToDoService {
 
 	@Autowired
@@ -22,6 +25,7 @@ public class ToDoServiceImpl implements ToDoService {
 	}
 
 	@Override
+	@Transactional
 	public boolean addNote(ToDo toDo)
 	{
 		return toDoDao.addNote(toDo);
@@ -87,6 +91,11 @@ public class ToDoServiceImpl implements ToDoService {
 	@Override
 	public boolean addLabel(Label label) {// TODO Auto-generated method stub
 		return toDoDao.addLabel(label);
+	}
+
+	@Override
+	public List<Label> getLabel(int userId) {
+		return toDoDao.getLabel(userId);
 	}
 
 

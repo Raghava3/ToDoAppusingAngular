@@ -28,13 +28,24 @@ myToDo.config(function ($stateProvider, $urlRouterProvider) {
 	  url:"/Trash",
     templateUrl:"html/Trash.html",
   })
-	  .state('Archive',{
+	  
+  .state('Archive',{
 	  url:"/Archive",
     templateUrl:"html/Archive.html",
   })
+  
+ 
+  .state('Label',{
+	  url:"/Label",
+	  templateUrl:"html/LabelHome.html"
+  })
+  
+  .state('search',{
+	  url:"/search",
+	  templateUrl:"html/search.html"
+  })
+  
   $urlRouterProvider.otherwise('/Login');
-  
-  
 
 });
 

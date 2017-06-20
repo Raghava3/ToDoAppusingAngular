@@ -134,6 +134,12 @@ this.addLabel=function(label)
    	 });
 }
 
+this.getLabel = function(){
+	return $http({
+		url:"http://localhost:8030/todoapp/getLabel",
+		method:"GET"
+	});
+}
 
 
 });

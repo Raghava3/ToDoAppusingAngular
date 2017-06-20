@@ -80,6 +80,7 @@ public void googleConnection(HttpServletRequest request, HttpServletResponse res
 			user.setFullName(profile.getDisplayName());
 			user.setEmail(profile.getEmails().get(0).getValue());
 			user.setPassword("");
+			user.setImage(profile.getImage().getUrl());
 			userSerInter.registration(user);
 		}
 		session.setAttribute("user", user);

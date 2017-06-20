@@ -15,7 +15,7 @@ body {
 {
 	width:100%;
 	height:40px;
-	margin-left:39%;
+	margin-left:28%;
 }
 	#centerdiv {
 	width: 457PX;
@@ -73,7 +73,7 @@ body {
     font-size: 13px;
     margin: 5px 2px;
     cursor: pointer;
-      margin-left: 33%; 
+      margin-left: 37%; 
 	    margin-bottom: 46px;
     margin-top:33px;
 } 
@@ -95,7 +95,7 @@ body {
 	
 	#loginbutton
 	{
-	margin-left:20%;
+	margin-left:25%;
 	}
 	#main
 	{
