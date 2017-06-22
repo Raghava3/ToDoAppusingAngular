@@ -203,7 +203,7 @@
 
 .cont.grid .card {
 	display: inline-block;
-	width: 30%;
+	width: 31%;
 	
 	padding: 10px;
 /* 	vertical-align: middle; */
@@ -218,7 +218,7 @@
 
 .modal-content
 {
-	margin-top: 80%;
+	margin-top: 100%;
 }
 
 

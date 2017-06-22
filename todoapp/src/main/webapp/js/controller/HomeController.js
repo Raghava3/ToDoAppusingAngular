@@ -370,7 +370,12 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 		console.log("coming inside the search");
 		$state.go("search");
 	}
-	
+
+	this.archiveSearch=function()
+	{
+		console.log("coming inside the search");
+		$state.go("ArchiveSearch");
+	}
 	
 	$scope.goHome=function()
 	{
@@ -474,11 +479,43 @@ this.createNewLables = function() {
 	}
 
 
-	
+
 	this.adngToLabel=function()
 	{
 		console.log("coming inside the adngToLabel");
 	$state.go("Label");	
 	}
-
+	
+	//this is share with facebook
+	this.fbShare=function(todo){
+		console.log("facebook share")
+		FB.init({
+		appId : '233416400492726',
+		status: true,
+		xfbml : true
+		});
+		FB.ui({
+		          method: 'share_open_graph',
+		          action_type: 'og.shares',
+		          action_properties: JSON.stringify({
+		              object : {
+		                 // your url to share
+		                 'og:title': todo.title,
+		                 'og:description': todo.note,
+		                 /*'og:image': 'http://example.com/link/to/your/image.jpg'*/
+		              }
+		          })
+		          },
+		          // callback
+		          function(response) {
+		          if (response && !response.error_message) {
+		              // then get post content
+		              alert('successfully posted.');
+		          } else {
+		              alert('Something went error.');
+		          }
+		      });
+		      
+		};
+	
 });

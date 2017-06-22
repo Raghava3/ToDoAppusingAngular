@@ -81,8 +81,18 @@ myToDo.controller("TrashController", function($scope, $state,homeService)
 		console.log("coming inside trashtogohomasdfsade");
 		$state.go("Archive");
 	}
+    
+	this.trashToSearch=function()
+	{
+		console.log("coming inside trashtosearch");
+		$state.go("TrashSearch");
+	}
 	
-	
+	$scope.searchToTrash=function()
+	{
+		console.log("coming inside trashtosearch");
+		$state.go("Trash");
+	}
 	
 	
 	$scope.move = function() {

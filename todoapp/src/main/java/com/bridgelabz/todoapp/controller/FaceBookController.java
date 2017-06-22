@@ -86,6 +86,43 @@ public class FaceBookController {
 		
 	}
 	
+	
+	
+	
+	
+		/*$scope.facebookshare=function(todo){
+console.log("facebook share")
+FB.init({
+appId : '1639081702785828',
+status: true,
+xfbml : true
+});
+FB.ui({
+          method: 'share_open_graph',
+          action_type: 'og.shares',
+          action_properties: JSON.stringify({
+              object : {
+                 // your url to share
+                 'og:title': todo.title,
+                 'og:description': todo.description,
+                 /*'og:image': 'http://example.com/link/to/your/image.jpg'
+              }
+          })
+          },
+          // callback
+          function(response) {
+          if (response && !response.error_message) {
+              // then get post content
+              alert('successfully posted. Status id : '+response.post_id);
+          } else {
+              alert('Something went error.');
+          }
+      });
+      
+};*/
+	
+	
+	
 }
 	
 

@@ -23,7 +23,7 @@
     <div id="navbar" class="navbar-collapse collapse">
 	    <ul class="nav navbar-nav navbar-right" id="navBar" style="width: 78% ">
 				<li id="srchwdt">
-					<input type="text" placeholder="Search" id="search"   data-toggle="tooltip" title="Search" > 
+					<input type="text" placeholder="Search" id="search"   data-toggle="tooltip" title="Search" data-ng-click="hc.archiveSearch()" > 
 				</li>
 					          
 				<li id="refresh">
@@ -42,12 +42,12 @@
 					
 	             <li>
 	             	<span uib-dropdown >
-	            	<div class="dropdown-toggle" uib-dropdown-toggle style="width: 40px; height:40px; border-radius: 50%; background-color: white; padding-left: 10px; font-size: 30px; margin-top:15px;margin-left:200px; background-color: #2A4976; color:white; cursor: pointer;" data-toggle="tooltip" title="profile">
+	            	<div class="dropdown-toggle" uib-dropdown-toggle style="width: 40px; height:40px; border-radius: 50%; background-color: white; padding-left: 10px; font-size: 30px; margin-top:15px;margin-left:200px; background-color: #2A4976; color:white; background-image:url('{{user.image}}'); cursor: pointer;" data-toggle="tooltip" title="profile" >
 	            	{{user.fullName.charAt(0)| uppercase}}
 	            	</div>
 	          		 <div  uib-dropdown-menu style="margin-right: -329px;">
 	          		   <div class="col-sm-3" style="width: 300px;height: 130px;padding-top: 10px;border-bottom: 2px solid;">
-	          			 <div class="col-sm-1" id="userChar" data-toggle="tooltip" title="Profile" >
+	          			 <div class="col-sm-1" id="userChar" data-toggle="tooltip" title="Profile" style="background-image:url('{{user.image}}');" >
 	          				 {{user.fullName.charAt(0)|uppercase}}
 	          			 </div>
 	          			 <div class="col-sm-1" style="margin-top: 18px;">
@@ -139,13 +139,13 @@
 					<div class="cont" data-ng-class="{list: isList, grid: !isList}">
 						<div class="cardRow">
 							<div class="card" id="cardId" data-ng-if="trashtodo.archive" data-ng-repeat="trashtodo in toDoList" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{trashtodo.color}};">
-								<div  data-ng-click="hc.popUp(archivetodo, $index)" >
+								<div  data-ng-click="hc.popUp(, $index)" >
 									<div id="toDoTitle">
 										 <span data-toggle="tooltip" title="rightmark">
 										   <img uib-dropdown-toggle alt="color" src="images/check.png" data-ng-show="icons"  width="25px;" height="20px;"  style=" cursor: pointer;margin-top: -20px; margin-left: -25px">
 										  </span>
-									<div id="#toDoTitle"><font size="4px" face="verdana">{{trashtodo.title}}</font></div>
-									<div id="toDoNote"><font size="6px" >{{trashtodo.note}}</font></div>
+									<div id="#toDoTitle"><font size="4px" face="verdana"  ng-bind-html="trashtodo.title"></font></div>
+									<div id="toDoNote"><font size="6px"   ng-bind-html="trashtodo.note"></font></div>
 								</div>
 								<div  id="icons" style="padding-left: 20px;padding-top:10px;">
 									<span data-ng-show="icons">

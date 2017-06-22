@@ -45,6 +45,16 @@ myToDo.config(function ($stateProvider, $urlRouterProvider) {
 	  templateUrl:"html/search.html"
   })
   
+  .state('ArchiveSearch',{
+	  url:"/ArchiveSearch",
+	  templateUrl:"html/ArchiveSearch.html"
+  })
+  
+  .state('TrashSearch',{
+	  url:"/TrashSearch",
+	  templateUrl:"html/TrashToSearch.html"
+  })
+  
   $urlRouterProvider.otherwise('/Login');
 
 });

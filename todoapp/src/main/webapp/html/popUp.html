@@ -6,14 +6,14 @@
 <div>
 	<div style="background-color:  {{$ctrl.color}};">
 		<div class="modal-body" id="modal-body"  style="outline: none; height: 40px;">
-			<textarea style="border: none; width: 100%; outline: none;; font-weight: bold; background-color:{{$ctrl.color}}"
-				data-ng-model="$ctrl.title" rows="" cols="">{{$ctrl.title}}</textarea>
+			<textarea style="border: none; width: 100%; outline: none; font-weight: bold; background-color:{{$ctrl.color}}"
+				data-ng-model="$ctrl.title" rows="" cols=""  ng-bind-html="$ctrl.title"></textarea><!-- {{$ctrl.title}} -->
 		</div>
 		
 		
 		<div class="modal-body" id="modal-body"  style="outline: none; ">
 			<textarea style="border: none; width: 100%; outline: none; background-color:{{$ctrl.color}}"
-				data-ng-model="$ctrl.note" rows="" cols="">{{$ctrl.note}}</textarea>
+				data-ng-model="$ctrl.note" rows="" cols=""  ><div ng-bind-html="$ctrl.note"></div></textarea><!-- {{$ctrl.note}} -->
 		</div>
 		
 		<div style="padding-bottom: 10px; padding-left: 10px;">

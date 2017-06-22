@@ -51,7 +51,7 @@
 	        </div>
 	          	<div  uib-dropdown-menu style="margin-right: -329px;">
 	          		<div class="col-sm-3" style="width: 300px;height: 130px;padding-top: 10px;border-bottom: 2px solid;">
-	          			<div class="col-sm-1" id="userChar" data-toggle="tooltip" title="Profile" >
+	          			<div class="col-sm-1" id="userChar" data-toggle="tooltip" title="Profile"; style="background-image:url('{{user.image}}');" >
 	          						{{user.fullName.charAt(0)|uppercase}}  
 	          						<div input type="file" data-ng-click="hc.uploadImage()" style="width: 95px;margin-left: -33px;margin-top: 13px;padding-left: 10px" data-ng-model="user.image"> 
 	          						 <font size="2px" color="black">
@@ -209,9 +209,9 @@
 		<img uib-dropdown-toggle alt="color" src="images/check.png" data-ng-show="icons"  width="25px;" height="20px;"  style=" cursor: pointer;margin-top: -20px; margin-left: -25px">
 	 </span>
 									
-	 <div id="#toDoTitle"><font size="4px" face="verdana">{{todo.title}}</font></div>
+	 <div id="#toDoTitle"><font size="4px" face="verdana" ng-bind-html="todo.title"></font></div>
 	 <div style="float: right; cursor: pointer;"><img data-ng-show="icons" alt="icon" src="images/pin.svg" width="25px" height="30px" data-toggle="tooltip" title="Pin note" data-ng-click="hc.pinUp(todo)" style="margin-top:-30px;"></div>
-	 <div id="toDoNote"><font size="6px" >{{todo.note}}</font></div>
+	 <div id="toDoNote"><font size="6px"  ng-bind-html="todo.note"></font></div>
 	 </div>
 	</div>
 	</div>
@@ -284,8 +284,14 @@
 		 </span>
 					
 		 <span>
-			<img alt="icon" src="images/archive.svg" width="30px" height="30px" style="margin-left: 13px; cursor: pointer; "data-ng-click="hc.archiveNote(todo)">
+			<img alt="icon" src="images/archive.svg" width="30px" height="30px" style="margin-left: 13px; cursor: pointer; "data-ng-click="hc.archiveNote(todo)" data-toggle="tooltip" title="archive">
 		 </span>
+		 
+		 <span>
+			<img alt="icon" src="images/facebook-3-24.png" width="30px" height="25px" style="margin-left: 13px; cursor: pointer; "data-ng-click="hc.fbShare(todo)" data-toggle="tooltip" title="share in fb">
+		 </span>
+		 
+		 
 										
 		<span uib-dropdown dropdown-append-to-body >
 		  <span uib-dropdown-toggle data-toggle="tooltip" title="More" style="margin-left: 15px;">
@@ -326,5 +332,10 @@
 </div>
 <div class="col-sm-2"></div>
 </div>
-</div> 
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
 </div>
+</div> 
