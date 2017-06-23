@@ -22,6 +22,7 @@
 	<!-- <script src="bower_components/angular-ui-bootstrap/dist/ui-bootstrap.js" type="text/javascript"></script> -->
 	<script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js" type="text/javascript"></script>
 	<script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+	<script src="bower_components/angular-canvas-painter/dist/angular-canvas-painter.min.js"></script>	
 	<script src="js/app.js" type="text/javascript"></script>
 	
 	<script src="https://connect.facebook.net/enUS/all.js"></script>
@@ -34,7 +35,6 @@
 <link rel="stylesheet" href="css/Login.css">
 <link rel="stylesheet" href="css/Home.css">
 <link rel="stylesheet" href="css/Trash.css">
-<link rel="stylesheet" href="css/Archive.css">
  
 <title>ToDoApp</title>
 </head>
@@ -57,6 +57,6 @@
 <script src="js/service/toDoHomeService.js" type="text/javascript"></script>
 <script src="js/validation/toDoHome.js" type="text/javascript"></script>
 
-<script src="js/Signup.js" type="text/javascript"></script> 
+<script src="js/Signup.js" type="text/javascript"></script>
 
 </html>

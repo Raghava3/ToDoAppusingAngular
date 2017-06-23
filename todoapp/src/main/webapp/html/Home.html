@@ -26,10 +26,11 @@
     <ul class="nav navbar-nav navbar-right" id="navBar" style="width: 78% ">
 	
 	 <li id="srchwdt">
-	
 	   <input type="text" placeholder="Search"  id="search" data-ng-model="searchText"  data-toggle="tooltip" title="Search" data-ng-click="hc.search()"> 
 	 </li>
-	
+	 
+	 
+	 
 	 <li id="refresh">
 	   <font color="white"><span class="glyphicon glyphicon-refresh" data-toggle="tooltip" title="Refresh"></span></font>
 	 </li>
@@ -144,8 +145,11 @@
 	<div class="col-sm-7">
 	  <div>
 		<div style="margin-top: 15px">
+		
 		  <div data-ng-show ="IsVisible" id="title"  data-ng-model="toDo.title" newcontenteditable contenteditable="true" placeholder="Title" style="font-weight: bold;"></div>
 		  <div id="note"  data-ng-model="toDo.note" data-ng-click="hc.showHide()" newcontenteditable contenteditable="true" placeholder="Take a Note..."></div>
+		   <div style="width:10px height:10px;background-color:white">
+	   </div>
 		  <div class="row" data-ng-show ="done" id="done">
 			<div class="col-sm-4">
 			  <i class="dropdown" style="padding-top: 10px; padding-bottom: 10px">

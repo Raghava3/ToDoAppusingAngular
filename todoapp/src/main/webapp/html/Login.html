@@ -1,17 +1,12 @@
-<div class="col-sm-4"></div>
-<div class="col-sm-4">
- <div id="main">
-	<div id="bridgelabz">
-		<font color="#076cab">BRIDGELABZ</font>
-	</div>
-	<div id="makenote">
+
+<!-- <div id="makenote">
 		<font style="font-size: 36px;"color:white">Make a Note</font>
 	</div>
 	<div id="centerdiv" data-ng-controller="LoginController as lc">
 		<div id="todo">
 			<font color="white"><b>ToDo</b></font>
 		</div>
-		<!--  <div id="logindiv">  -->
+		 <div id="logindiv"> 
 		<div id="logindiv1">
      		<form name="myForm" class="form-horizontal">
                <div class="form-group">
@@ -24,9 +19,7 @@
 			   <div class="form-group">	
 				<label class="control-label col-sm-2">password:</label>
 				<div class="col-sm-2">
-				<input type="password"
-					 class="form-control" id="password" name="password" placeholder="password"
-					data-ng-model="password">
+				<input type="password" class="form-control" id="password" name="password" placeholder="password" data-ng-model="password">
 				</div> 
 				  </div>	
 					<input class="lbutton"type="submit"  id="loginbutton" value="login" data-ng-click="login()">
@@ -34,7 +27,7 @@
 
 			</form>
 			</div>
-		<!-- </div> -->
+		</div>
 
 		<div id="signupdiv">
 
@@ -55,7 +48,58 @@
 	</div>
 	</div>
 
-</div>
+</div> -->
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+	<div id="centerdiv" data-ng-controller="LoginController as lc">
+		<div id="main">
+
+			<div class="wrapper">
+				<form class="form-signin">
+					<div>
+						<marquee style="font-family: Book Antiqua" behavior="slide"
+							scrollamount="50">
+							<h2>
+								<font color="#4285f4">T</font><font color="red">o</font><font
+									color="#fb0">d</font><font color="green">o</font>
+							</h2>
+						</marquee>
+					</div>
+					<!-- #4285f4 -->
+					<h2 class="form-signin-heading">Sign in</h2>
+					<br>
+					<h4 style="margin-top: -22px">to continue ToDo</h4>
+					<div style="margin-top: 50px">
+						<input type="email" class="form-control" id="email" name="email"
+							placeholder="Email Address" data-ng-model="email" required=""
+							autofocus="" /> <input type="password" class="form-control"
+							id="password" name="password" placeholder="Password"
+							data-ng-model="password" required="" />
+					</div>
+					<button class="btn1" type="submit" data-ng-click="login()">
+						<font color="white">Login</font>
+					</button>
+					<div>
+						<a data-ui-sref="SignUp"><font size="4px">register?</font></a>
+					</div>
+					<div style="margin-left: 150px; color: #4285f4">login with</div>
+				</form>
+
+				<div style="margin-top: -150px; auto; margin-left: 250px;">
+					<a href="loginWithFacebook"> <img
+						style="margin-left: -80px; width: 150px; height: 50px"
+						src="images/newFaceBook.png">
+					</a>
+				</div>
+				<div style="margin-left: 2px; auto; margin-left: 150px">
+					<a href="loginWithGoogle"> <img
+						style="margin-left: 25px; width: 150px; height: 50px; margin-top: 10px"
+						src="images/newGoogle.png">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="col-sm-4"></div>
 

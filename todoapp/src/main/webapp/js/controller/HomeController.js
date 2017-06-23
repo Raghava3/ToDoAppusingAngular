@@ -1,6 +1,5 @@
 myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeService,homeJavaScript)
 		{
-	
 	homeJavaScript.homescript();
 
 	var toDoList = [];
@@ -226,10 +225,10 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	this.move = function() {
 		if($scope.visible){
 			console.log("coming inside the move visi")
-			$scope.move = {"margin-left":"15%","transition":"0.6s ease"}
+			$scope.move = {"margin-left":"15%","transition":"0.3s ease"}
 		}
 		else {
-			$scope.move = {"margin-left":"0px","transition":"0.6s ease"}
+			$scope.move = {"margin-left":"0px","transition":"0.3s ease"}
 		}
 		
 	}
