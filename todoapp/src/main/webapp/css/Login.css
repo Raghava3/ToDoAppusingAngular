@@ -15,7 +15,7 @@ body {
   margin-top:10px;
   margin-bottom:10px;
   padding: 15px 35px 45px;
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: 0px 0px 10px #000000;
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid rgba(0,0,0,0.1);  
@@ -96,6 +96,18 @@ body {
     border-radius: 4px;
     background-color: #4285f4;
     
+}
+#rotate {
+		-webkit-animation: rotation 1s ;
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
 }
 
 /* this is for previous page  */
