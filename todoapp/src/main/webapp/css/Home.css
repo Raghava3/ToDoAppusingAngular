@@ -192,7 +192,9 @@
 	background: #fff;
 	padding: 6px;
 	margin-bottom: 30px;
-	box-shadow: 1px 1px 1px 1px;
+	box-shadow: box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+
+
 	margin-left: 53px;
 	
   
@@ -211,7 +213,9 @@
 	margin-right: 20px;
 	background: #fff;
 	padding: 6px;
-	box-shadow: 1px 1px 1px 1px;
+	box-shadow: box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+
+;
 	float:left;
 	min-height: 20%;
 }
@@ -322,4 +326,8 @@ hr {
 .modal-content
 {
 	min-width: 75px;
+}
+.card:hover
+{
+       box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.8);
 }

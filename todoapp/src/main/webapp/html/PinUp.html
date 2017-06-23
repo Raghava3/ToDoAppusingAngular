@@ -10,8 +10,10 @@
   <div data-ng-if="todo.pinup&&!todo.archive" class="card" id="cardId" data-ng-repeat="todo in toDoList | filter:searchText" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
 	<div  data-ng-click="hc.popUp(todo, $index)" ><!-- | orderBy:'-' -->
 		<div id="toDoTitle"  data-ng-bind-html="todo.title">
-			<div style="float: right; cursor: pointer;"><img alt="icon" src="images/bluepin.png" width="25px" height="30px" data-toggle="tooltip" title="Pin note" data-ng-click="hc.unPinUp(todo)"></div>
 		</div>
+		
+		<div style="float: right; cursor: pointer;"><img alt="icon" src="images/bluepin.png" width="25px" height="30px" data-toggle="tooltip" title="Pin note" data-ng-click="hc.unPinUp(todo)"></div>
+					
 		<div id="toDoNote" data-ng-bind-html="todo.note">
 		</div>
 	</div>
