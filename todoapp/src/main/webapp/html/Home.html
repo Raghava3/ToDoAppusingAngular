@@ -138,6 +138,10 @@
 	    </div>
 	  </li>
 	  
+	  <li>
+	
+	  </li>
+	  
     </ul>
 </div>
 <div id="homeBody" class="row"  data-ng-style="move">
@@ -200,13 +204,19 @@
 </div>
 					
 <div data-ng-include="'html/PinUp.html'"></div>
+
+
 					
-<div class="cont" data-ng-class="{list: isList, grid: !isList}">
+<div class="cont" data-ng-class="{list: isList, grid: !isList}" >
  <div class="cardRow">
  <div>
+<!--  <div class="example">
+    <div class="gridly"> -->
+    <div class="move">
   <div class="card" data-ng-if="!todo.pinup&&!todo.archive" id="cardId" data-ng-repeat="todo in toDoList| filter:searchText" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
   <div>
-  <div  data-ng-click="hc.popUp(todo, $index)" >
+   
+      <div  data-ng-dblclick="hc.popUp(todo, $index)" >
 	<div id="toDoTitle">
 	<div>
 	 <span data-toggle="tooltip" title="rightmark">
@@ -328,18 +338,21 @@
 	<img data-ng-click="hc.cancelRemainder(todo)" alt="icon" src="images/Cancel.png" width="20px" height="20px" data-toggle="tooltip" title="Delete remainder">
 	</span>
 	</div>
+
+ </div>
+ </div>
  </div>
  </div>
 </div>
 </div>
 </div>
 </div>
-<div class="col-sm-2"></div>
+<div class="col-sm-2" style="margin-left: 80%;margin-top: -113%">   <div
+         class="fb-like"
+         data-share="true"
+         data-width="450"
+         data-show-faces="true">
+       </div></div>
 </div>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
+
 </div> 

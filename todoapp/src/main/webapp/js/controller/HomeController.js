@@ -48,6 +48,15 @@ myToDo.controller("HomeController", function($scope, $state	,$uibModal,homeServi
 	});
 	
 
+	$('.gridly').gridly({
+		base: 60,
+		gutter: 20,
+		columns: 12,
+		draggable: {
+		zIndex: 800,
+		selector: '> *'
+		}
+		});
 		
 	
 	
@@ -517,4 +526,20 @@ this.createNewLables = function() {
 		      
 		};
 	
+		$(function() {
+			$(".move").sortable({
+			
+				
+				
+				opacity:0.7,
+				axis:'z',
+				update:function()
+				{
+					console.log("coming");
+					var data=$(this).sortable('serialize');
+				}
+			});
+			
+		});
+		
 });

@@ -9,21 +9,30 @@
 <link rel="stylesheet" href="bower_components/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
 <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css">
  
-<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="bower_components/moment/moment.js"></script>
 	<script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
-<!-- 	<script src="bower_components/angular-ui-bootstrap/src/modal/modal.js" type="text/javascript"></script>
- -->	<script src="bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js" type="text/javascript"></script>
-
+    <!-- <script src="bower_components/angular-ui-bootstrap/src/modal/modal.js" type="text/javascript"></script>-->	
+    <script src="bower_components/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js" type="text/javascript"></script>
+       
+    <script  src="bower_components/gridly/javascripts/jquery.gridly.js"  type="text/javascript"></script>
+    <script  src="bower_components/gridly/stylesheets/jquery.gridly.css" type="text/javascript"></script>
+    
+    <script  src="bower_components/packery/dist/packery.pkgd.min.js"type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/draggabilly/2.1.1/draggabilly.pkgd.min.js" charset="utf-8"></script>
+      
 	<script src="bower_components/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
 	<script src="bower_components/angular-animate/angular-animate.min.js" type="text/javascript"></script>
 	<!-- <script src="bower_components/angular-ui-bootstrap/dist/ui-bootstrap.js" type="text/javascript"></script> -->
 	<script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js" type="text/javascript"></script>
 	<script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
 	<script src="bower_components/angular-canvas-painter/dist/angular-canvas-painter.min.js"></script>	
+	<script src="bower_components/ui-sortable/dist/ui-sortable.min.js" type="text/javascript"></script>
 	<script src="js/app.js" type="text/javascript"></script>
+	
+	<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js' type='text/javascript'></script>
 	
 	<script src="https://connect.facebook.net/enUS/all.js"></script>
 	

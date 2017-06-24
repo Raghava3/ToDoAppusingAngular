@@ -7,18 +7,19 @@
 	   </font>
 	  </b>
 	 </div>
-  <div data-ng-if="todo.pinup&&!todo.archive" class="card" id="cardId" data-ng-repeat="todo in toDoList | filter:searchText" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
-	<div  data-ng-click="hc.popUp(todo, $index)" ><!-- | orderBy:'-' -->
-		<div id="toDoTitle"  data-ng-bind-html="todo.title">
-		</div>
+	  <div class="example">
+       <div class="gridly">
+          <div data-ng-if="todo.pinup&&!todo.archive" class="card" id="cardId" data-ng-repeat="todo in toDoList | filter:searchText" data-ng-mouseover="icons=true" data-ng-mouseleave="icons=false" style="background-color: {{todo.color}};">
+	        <div  data-ng-click="hc.popUp(todo, $index)" ><!-- | orderBy:'-' -->
+		      <div id="toDoTitle"  data-ng-bind-html="todo.title"></div>
 		
-		<div style="float: right; cursor: pointer;"><img alt="icon" src="images/bluepin.png" width="25px" height="30px" data-toggle="tooltip" title="Pin note" data-ng-click="hc.unPinUp(todo)"></div>
+		        <div style="float: right; margin-top:-37px; cursor: pointer;"><img alt="icon"  src="images/bluepin.png" width="25px" height="30px" data-toggle="tooltip" title="Pin note" data-ng-click="hc.unPinUp(todo)"></div>
 					
-		<div id="toDoNote" data-ng-bind-html="todo.note">
-		</div>
-	</div>
-	<div  id="icons" style="padding-left: 20px;">
-		<span data-ng-show="icons">
+		          <div id="toDoNote" data-ng-bind-html="todo.note"></div>
+	       </div>
+	
+	   <div  id="icons" style="padding-left: 20px;">
+		 <span data-ng-show="icons">
 			<span uib-dropdown dropdown-append-to-body>
 				<span data-toggle="tooltip" title="Remind me">
 						<img uib-dropdown-toggle alt="color" src="images/remindericon.svg" width="25px;" height="20px;"  style=" cursor: pointer;"">
@@ -95,14 +96,24 @@
   </span>
 </div>
 				
-	<div data-ng-if="todo.remainder" id="remainder" data-ng-mouseover="cancel=true" data-ng-mouseleave="cancel=false"><span>
+	 <div data-ng-if="todo.remainder" id="remainder" data-ng-mouseover="cancel=true" data-ng-mouseleave="cancel=false"><span>
 		<span>
 		<img alt="icon" src="images/timeSpan.png" width="12px" height="12px"> 
 		{{todo.remainder|date:'MMM, dd yyyy  hh:mm a'}}
 		</span>
 		<span style="float: right;" data-ng-show="cancel"><img data-ng-click="hc.cancelRemainder(todo)" alt="icon" src="images/Cancel.png" width="20px" height="20px" data-toggle="tooltip" title="Delete remainder"></span>
-	</div>
+	 </div>
+  </div>
+ </div>
 </div>
+
 </div>
 	<div style="margin-bottom: 30px;margin-left: 30px"><b><font style="color: rgba(108,108,108,1);font-size: 18px">Others</b></div>		
 </div>
+
+
+
+
+	<!--   this is the changes-->
+	
+	
